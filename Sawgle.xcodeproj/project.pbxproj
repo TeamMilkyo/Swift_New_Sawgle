@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E2CC67C22927C6F006E0B6E /* NewRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */; };
+		386CD00E22B64C7800D69166 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386CD00D22B64C7800D69166 /* ReplyViewController.swift */; };
+		386CD01122B7834700D69166 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386CD01022B7834700D69166 /* ReplyView.swift */; };
+		386CD01322B7872F00D69166 /* ReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */; };
+		389F08F822BA26BC00EA5AD6 /* SawgleAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */; };
+		B406BA5122B3266A009B921D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B406BA5022B3266A009B921D /* SettingView.swift */; };
+		B406BA5922B354AD009B921D /* SettingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B406BA5822B354AD009B921D /* SettingTableCell.swift */; };
+		B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */; };
+		B42BF59D227AAAC300D91F09 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BF59C227AAAC300D91F09 /* LoginView.swift */; };
+		B470905422B71CC90049FB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B470905322B71CC90049FB1C /* Assets.xcassets */; };
+		B4AF0AEB229B7DFC008EEED7 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEA229B7DFC008EEED7 /* CustomTabBarView.swift */; };
+		B4AF0AED229B804B008EEED7 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEC229B804B008EEED7 /* CustomTabBarController.swift */; };
+		B4AF0AF0229B810A008EEED7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEF229B810A008EEED7 /* HomeViewController.swift */; };
+		B4AF0AF2229BA35C008EEED7 /* BookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AF1229BA35C008EEED7 /* BookMarkViewController.swift */; };
+		B4AF0AF4229BA399008EEED7 /* MyWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AF3229BA399008EEED7 /* MyWriteViewController.swift */; };
+		B4AF0AF6229BA3B4008EEED7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AF5229BA3B4008EEED7 /* SettingViewController.swift */; };
+		B4AF0AF8229BA3D6008EEED7 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AF7229BA3D6008EEED7 /* WriteView.swift */; };
+		B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AFA229BCBE6008EEED7 /* WriteViewController.swift */; };
+		B4BDA9B0227A759E0064B561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9AF227A759E0064B561 /* AppDelegate.swift */; };
+		B4BDA9B2227A759E0064B561 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9B1227A759E0064B561 /* FirstView.swift */; };
+		B4BDA9B5227A759E0064B561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9B3227A759E0064B561 /* Main.storyboard */; };
+		B4BDA9BA227A759F0064B561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9B8227A759F0064B561 /* LaunchScreen.storyboard */; };
+		B4BDA9C8227A83CE0064B561 /* SSShinb7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9C7227A83CC0064B561 /* SSShinb7.ttf */; };
+		B4BDA9CC227A87D80064B561 /* FontList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9CB227A87D80064B561 /* FontList.swift */; };
+		B4CE603A22A4AC62009E889A /* MyWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CE603922A4AC62009E889A /* MyWriteView.swift */; };
+		B4CE603C22A4E7CD009E889A /* MyWriteSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CE603B22A4E7CD009E889A /* MyWriteSectionView.swift */; };
+		B4CE604022A4FBAF009E889A /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4CE603F22A4FBA9009E889A /* SCDream2.otf */; };
+		B4CE604222A50526009E889A /* MySubscribePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CE604122A50526009E889A /* MySubscribePostCell.swift */; };
+		B4ED24EC22977AC90000598F /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9022929E4C00B10E46 /* SCDream4.otf */; };
+		B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9122929E5400B10E46 /* SCDream5.otf */; };
+		B4ED24F02297839A0000598F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24EF2297839A0000598F /* FirstViewController.swift */; };
+		B4ED24F3229784F90000598F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24F2229784F90000598F /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegisterViewController.swift; sourceTree = "<group>"; };
+		386CD00D22B64C7800D69166 /* ReplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
+		386CD01022B7834700D69166 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
+		386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
+		389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawgleAPIData.swift; sourceTree = "<group>"; };
+		B406BA5022B3266A009B921D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B406BA5822B354AD009B921D /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
+		B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayVIewController.swift; sourceTree = "<group>"; };
+		B4189F9022929E4C00B10E46 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
+		B4189F9122929E5400B10E46 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		B42BF59C227AAAC300D91F09 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B470905322B71CC90049FB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4AF0AEA229B7DFC008EEED7 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		B4AF0AEC229B804B008EEED7 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		B4AF0AEF229B810A008EEED7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B4AF0AF1229BA35C008EEED7 /* BookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewController.swift; sourceTree = "<group>"; };
+		B4AF0AF3229BA399008EEED7 /* MyWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWriteViewController.swift; sourceTree = "<group>"; };
+		B4AF0AF5229BA3B4008EEED7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B4AF0AF7229BA3D6008EEED7 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		B4AF0AFA229BCBE6008EEED7 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		B4BDA9AC227A759E0064B561 /* Sawgle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sawgle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4BDA9AF227A759E0064B561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4BDA9B1227A759E0064B561 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		B4BDA9B4227A759E0064B561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4BDA9B9227A759F0064B561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4BDA9BB227A759F0064B561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4BDA9C7227A83CC0064B561 /* SSShinb7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSShinb7.ttf; sourceTree = "<group>"; };
+		B4BDA9CB227A87D80064B561 /* FontList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontList.swift; sourceTree = "<group>"; };
+		B4CE603922A4AC62009E889A /* MyWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWriteView.swift; sourceTree = "<group>"; };
+		B4CE603B22A4E7CD009E889A /* MyWriteSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWriteSectionView.swift; sourceTree = "<group>"; };
+		B4CE603F22A4FBA9009E889A /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
+		B4CE604122A50526009E889A /* MySubscribePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubscribePostCell.swift; sourceTree = "<group>"; };
+		B4ED24EF2297839A0000598F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		B4ED24F2229784F90000598F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4BDA9A9227A759E0064B561 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		386CD00F22B7833800D69166 /* ReplyView */ = {
+			isa = PBXGroup;
+			children = (
+				386CD00D22B64C7800D69166 /* ReplyViewController.swift */,
+				386CD01022B7834700D69166 /* ReplyView.swift */,
+				386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */,
+			);
+			path = ReplyView;
+			sourceTree = "<group>";
+		};
+		B406BA4F22B32655009B921D /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B4AF0AF5229BA3B4008EEED7 /* SettingViewController.swift */,
+				B406BA5022B3266A009B921D /* SettingView.swift */,
+				B406BA5822B354AD009B921D /* SettingTableCell.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		B42BF59B227AA3CA00D91F09 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B4BDA9C7227A83CC0064B561 /* SSShinb7.ttf */,
+				B4CE603F22A4FBA9009E889A /* SCDream2.otf */,
+				B4189F9022929E4C00B10E46 /* SCDream4.otf */,
+				B4189F9122929E5400B10E46 /* SCDream5.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		B4AF0AE9229B7DE2008EEED7 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B4AF0AEA229B7DFC008EEED7 /* CustomTabBarView.swift */,
+				B4AF0AEC229B804B008EEED7 /* CustomTabBarController.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		B4AF0AEE229B80F8008EEED7 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				B406BA4F22B32655009B921D /* SettingView */,
+				B4CE603822A4AC48009E889A /* MyWriteView */,
+				B4AF0AF9229BCBD2008EEED7 /* WriteView */,
+				B4AF0AEF229B810A008EEED7 /* HomeViewController.swift */,
+				B4AF0AF1229BA35C008EEED7 /* BookMarkViewController.swift */,
+				386CD00F22B7833800D69166 /* ReplyView */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		B4AF0AF9229BCBD2008EEED7 /* WriteView */ = {
+			isa = PBXGroup;
+			children = (
+				B4AF0AF7229BA3D6008EEED7 /* WriteView.swift */,
+				B4AF0AFA229BCBE6008EEED7 /* WriteViewController.swift */,
+			);
+			path = WriteView;
+			sourceTree = "<group>";
+		};
+		B4BDA9A3227A759E0064B561 = {
+			isa = PBXGroup;
+			children = (
+				B4BDA9AE227A759E0064B561 /* Sawgle */,
+				B4BDA9AD227A759E0064B561 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4BDA9AD227A759E0064B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4BDA9AC227A759E0064B561 /* Sawgle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4BDA9AE227A759E0064B561 /* Sawgle */ = {
+			isa = PBXGroup;
+			children = (
+				B470905322B71CC90049FB1C /* Assets.xcassets */,
+				B42BF59B227AA3CA00D91F09 /* Font */,
+				B4ED24EE229783730000598F /* FirstView */,
+				B4ED24F1229784D70000598F /* LoginView */,
+				B4AF0AE9229B7DE2008EEED7 /* CustomTabBar */,
+				B4AF0AEE229B80F8008EEED7 /* TabViews */,
+				389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */,
+				B4BDA9B3227A759E0064B561 /* Main.storyboard */,
+				B4BDA9B8227A759F0064B561 /* LaunchScreen.storyboard */,
+				B4BDA9AF227A759E0064B561 /* AppDelegate.swift */,
+				1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */,
+				B4BDA9BB227A759F0064B561 /* Info.plist */,
+				B4BDA9CB227A87D80064B561 /* FontList.swift */,
+				B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */,
+			);
+			path = Sawgle;
+			sourceTree = "<group>";
+		};
+		B4CE603822A4AC48009E889A /* MyWriteView */ = {
+			isa = PBXGroup;
+			children = (
+				B4CE603922A4AC62009E889A /* MyWriteView.swift */,
+				B4AF0AF3229BA399008EEED7 /* MyWriteViewController.swift */,
+				B4CE603B22A4E7CD009E889A /* MyWriteSectionView.swift */,
+				B4CE604122A50526009E889A /* MySubscribePostCell.swift */,
+			);
+			path = MyWriteView;
+			sourceTree = "<group>";
+		};
+		B4ED24EE229783730000598F /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				B4BDA9B1227A759E0064B561 /* FirstView.swift */,
+				B4ED24EF2297839A0000598F /* FirstViewController.swift */,
+			);
+			path = FirstView;
+			sourceTree = "<group>";
+		};
+		B4ED24F1229784D70000598F /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				B42BF59C227AAAC300D91F09 /* LoginView.swift */,
+				B4ED24F2229784F90000598F /* LoginViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4BDA9AB227A759E0064B561 /* Sawgle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4BDA9BE227A759F0064B561 /* Build configuration list for PBXNativeTarget "Sawgle" */;
+			buildPhases = (
+				B4BDA9A8227A759E0064B561 /* Sources */,
+				B4BDA9A9227A759E0064B561 /* Frameworks */,
+				B4BDA9AA227A759E0064B561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sawgle;
+			productName = Sawgle;
+			productReference = B4BDA9AC227A759E0064B561 /* Sawgle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4BDA9A4227A759E0064B561 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Meo MacBook Pro";
+				TargetAttributes = {
+					B4BDA9AB227A759E0064B561 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B4BDA9A7227A759E0064B561 /* Build configuration list for PBXProject "Sawgle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4BDA9A3227A759E0064B561;
+			productRefGroup = B4BDA9AD227A759E0064B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4BDA9AB227A759E0064B561 /* Sawgle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4BDA9AA227A759E0064B561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4ED24EC22977AC90000598F /* SCDream4.otf in Resources */,
+				B4BDA9BA227A759F0064B561 /* LaunchScreen.storyboard in Resources */,
+				B4BDA9C8227A83CE0064B561 /* SSShinb7.ttf in Resources */,
+				B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */,
+				B470905422B71CC90049FB1C /* Assets.xcassets in Resources */,
+				B4CE604022A4FBAF009E889A /* SCDream2.otf in Resources */,
+				B4BDA9B5227A759E0064B561 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4BDA9A8227A759E0064B561 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AF0AEB229B7DFC008EEED7 /* CustomTabBarView.swift in Sources */,
+				B406BA5122B3266A009B921D /* SettingView.swift in Sources */,
+				386CD01322B7872F00D69166 /* ReplyTableViewCell.swift in Sources */,
+				B406BA5922B354AD009B921D /* SettingTableCell.swift in Sources */,
+				B42BF59D227AAAC300D91F09 /* LoginView.swift in Sources */,
+				1E2CC67C22927C6F006E0B6E /* NewRegisterViewController.swift in Sources */,
+				B4AF0AF8229BA3D6008EEED7 /* WriteView.swift in Sources */,
+				B4BDA9CC227A87D80064B561 /* FontList.swift in Sources */,
+				386CD01122B7834700D69166 /* ReplyView.swift in Sources */,
+				B4AF0AF2229BA35C008EEED7 /* BookMarkViewController.swift in Sources */,
+				389F08F822BA26BC00EA5AD6 /* SawgleAPIData.swift in Sources */,
+				B4AF0AF6229BA3B4008EEED7 /* SettingViewController.swift in Sources */,
+				B4BDA9B2227A759E0064B561 /* FirstView.swift in Sources */,
+				B4ED24F3229784F90000598F /* LoginViewController.swift in Sources */,
+				B4AF0AED229B804B008EEED7 /* CustomTabBarController.swift in Sources */,
+				B4AF0AF0229B810A008EEED7 /* HomeViewController.swift in Sources */,
+				B4AF0AF4229BA399008EEED7 /* MyWriteViewController.swift in Sources */,
+				B4CE604222A50526009E889A /* MySubscribePostCell.swift in Sources */,
+				B4BDA9B0227A759E0064B561 /* AppDelegate.swift in Sources */,
+				B4CE603C22A4E7CD009E889A /* MyWriteSectionView.swift in Sources */,
+				B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */,
+				B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */,
+				B4CE603A22A4AC62009E889A /* MyWriteView.swift in Sources */,
+				B4ED24F02297839A0000598F /* FirstViewController.swift in Sources */,
+				386CD00E22B64C7800D69166 /* ReplyViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4BDA9B3227A759E0064B561 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4BDA9B4227A759E0064B561 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4BDA9B8227A759F0064B561 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4BDA9B9227A759F0064B561 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4BDA9BC227A759F0064B561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4BDA9BD227A759F0064B561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4BDA9BF227A759F0064B561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				INFOPLIST_FILE = Sawgle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = meo.app.Sawgle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B4BDA9C0227A759F0064B561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				INFOPLIST_FILE = Sawgle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = meo.app.Sawgle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4BDA9A7227A759E0064B561 /* Build configuration list for PBXProject "Sawgle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4BDA9BC227A759F0064B561 /* Debug */,
+				B4BDA9BD227A759F0064B561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4BDA9BE227A759F0064B561 /* Build configuration list for PBXNativeTarget "Sawgle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4BDA9BF227A759F0064B561 /* Debug */,
+				B4BDA9C0227A759F0064B561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4BDA9A4227A759E0064B561 /* Project object */;
+}
