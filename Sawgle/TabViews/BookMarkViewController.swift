@@ -15,7 +15,7 @@ class BookMarkViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        navigationItem.title = "sawgle"
+        navigationItem.title = "즐겨찾글"
     }
 
     override func viewWillAppear(_: Bool) {

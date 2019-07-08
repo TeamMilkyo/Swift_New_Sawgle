@@ -22,8 +22,7 @@ class MyWriteViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        navigationItem.title = "mygle"
-
+        self.navigationItem.title = "마이글"
         self.ownView.mySubscribePostView.register(mySubscribePostCell.self, forCellWithReuseIdentifier: "mySubscribePostCell")
         self.ownView.mySubscribePostView.delegate = self
         self.ownView.mySubscribePostView.dataSource = self

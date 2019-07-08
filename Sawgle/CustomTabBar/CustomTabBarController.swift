@@ -60,10 +60,14 @@ class CustomTabBarController: UIViewController {
             return
         }
 
+        guard let titleColor = UIColor(named: "brownishGray") else {
+            return
+        }
+
         let newNavigation = UINavigationController(rootViewController: vcList[index])
-        newNavigation.navigationBar.barTintColor = UIColor(named: "Pale")
+        newNavigation.navigationBar.barTintColor = UIColor.white
         newNavigation.navigationBar.shadowImage = UIImage()
-        newNavigation.navigationBar.titleTextAttributes = [.font: UIFont().mainFont(displaySize: 24), .foregroundColor: UIColor.white]
+        newNavigation.navigationBar.titleTextAttributes = [.font: UIFont().mainFont(displaySize: 24), .foregroundColor: titleColor]
 
         self.navigation = newNavigation
         newNavigation.view.frame = targetView.contentView.bounds
