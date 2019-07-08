@@ -50,16 +50,10 @@ class SettingViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        navigationItem.title = "settings"
         self.ownView.settingTableView.delegate = self
         self.ownView.settingTableView.dataSource = self
         self.makeTitleData()
-    }
-
-    override func viewWillAppear(_: Bool) {
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "PaleBrown") ?? .brown, NSAttributedString.Key.font: UIFont().mainFont(displaySize: 20)]
-
+        self.navigationItem.title = "설정"
         self.registeCell()
     }
 }
