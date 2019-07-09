@@ -38,9 +38,14 @@ class MyWriteViewController: UIViewController {
     }
 
     override func viewDidAppear(_: Bool) {
-        self.ownView.myWriteSectionView.countLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: self.ownView.myWriteSectionView.countLabel.bounds.height)
-        self.ownView.myCommentSectionView.countLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: self.ownView.myCommentSectionView.countLabel.bounds.height)
-        self.ownView.myLikePostSectionView.countLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: self.ownView.myLikePostSectionView.countLabel.bounds.height)
+        let countFont = UIFont(name: "S-CoreDream-3Light", size: self.ownView.myWriteSectionView.countLabel.bounds.height)
+        let unitFont = UIFont(name: "S-CoreDream-3Light", size: self.ownView.myWriteSectionView.countLabel.bounds.height * 0.45)
+        self.ownView.myWriteSectionView.countLabel.font = countFont
+        self.ownView.myCommentSectionView.countLabel.font = countFont
+        self.ownView.myLikePostSectionView.countLabel.font = countFont
+        self.ownView.myWriteSectionView.unitLabel.font = unitFont
+        self.ownView.myCommentSectionView.unitLabel.font = unitFont
+        self.ownView.myLikePostSectionView.unitLabel.font = unitFont
     }
 }
 
@@ -65,7 +70,7 @@ extension MyWriteViewController: UICollectionViewDataSource {
 
 extension MyWriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-        let width = view.bounds.width * 0.43
+        let width = view.bounds.width * 0.4
         let height = collectionView.bounds.height
 
         return CGSize(width: width, height: height)

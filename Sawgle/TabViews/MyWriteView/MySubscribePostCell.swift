@@ -42,7 +42,7 @@ class mySubscribePostCell: UICollectionViewCell {
     let goPostButton: UIButton = {
         let goPostButton = UIButton()
         goPostButton.setTitleColor(UIColor(named: "PaleBrown"), for: .normal)
-        goPostButton.setTitle("댓글 본문보기", for: .normal)
+        goPostButton.setTitle("게시글 보기", for: .normal)
         goPostButton.titleLabel?.font = UIFont(name: "S-CoreDream-5Medium", size: 13)
         return goPostButton
     }()
