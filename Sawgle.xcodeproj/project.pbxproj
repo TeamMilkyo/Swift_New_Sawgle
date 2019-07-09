@@ -17,6 +17,7 @@
 		B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */; };
 		B42BF59D227AAAC300D91F09 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BF59C227AAAC300D91F09 /* LoginView.swift */; };
 		B470905422B71CC90049FB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B470905322B71CC90049FB1C /* Assets.xcassets */; };
+		B4829FB722D2D97500A1CE03 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4829FB622D2D92000A1CE03 /* SCDream3.otf */; };
 		B4AF0AEB229B7DFC008EEED7 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEA229B7DFC008EEED7 /* CustomTabBarView.swift */; };
 		B4AF0AED229B804B008EEED7 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEC229B804B008EEED7 /* CustomTabBarController.swift */; };
 		B4AF0AF0229B810A008EEED7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AEF229B810A008EEED7 /* HomeViewController.swift */; };
@@ -54,6 +55,7 @@
 		B4189F9122929E5400B10E46 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
 		B42BF59C227AAAC300D91F09 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B470905322B71CC90049FB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4829FB622D2D92000A1CE03 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
 		B4AF0AEA229B7DFC008EEED7 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		B4AF0AEC229B804B008EEED7 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B4AF0AEF229B810A008EEED7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				B4BDA9C7227A83CC0064B561 /* SSShinb7.ttf */,
 				B4CE603F22A4FBA9009E889A /* SCDream2.otf */,
+				B4829FB622D2D92000A1CE03 /* SCDream3.otf */,
 				B4189F9022929E4C00B10E46 /* SCDream4.otf */,
 				B4189F9122929E5400B10E46 /* SCDream5.otf */,
 			);
@@ -280,6 +283,7 @@
 				B4BDA9C8227A83CE0064B561 /* SSShinb7.ttf in Resources */,
 				B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */,
 				B470905422B71CC90049FB1C /* Assets.xcassets in Resources */,
+				B4829FB722D2D97500A1CE03 /* SCDream3.otf in Resources */,
 				B4CE604022A4FBAF009E889A /* SCDream2.otf in Resources */,
 				B4BDA9B5227A759E0064B561 /* Main.storyboard in Resources */,
 			);
@@ -465,6 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BY5MQ6875;
 				INFOPLIST_FILE = Sawgle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BY5MQ6875;
 				INFOPLIST_FILE = Sawgle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,7 @@
 		<string>SCDream4.otf</string>
 		<string>SCDream5.otf</string>
 		<string>SCDream2.otf</string>
+		<string>SCDream3.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
