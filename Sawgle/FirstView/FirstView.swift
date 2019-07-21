@@ -37,37 +37,37 @@ class FirstView: UIView {
         return buttonStack
     }()
 
-    let loginLabel: UILabel = {
-        let loginLabel = UILabel()
-        loginLabel.backgroundColor = UIColor(named: "Peach")
-        loginLabel.clipsToBounds = true
-        loginLabel.layer.cornerRadius = 10.0
-        loginLabel.font = UIFont().mainFont(displaySize: 24)
-        loginLabel.text = "로그인"
-        loginLabel.textAlignment = .center
-        loginLabel.textColor = UIColor.white
-        return loginLabel
+    let signInLabel: UILabel = {
+        let signInLabel = UILabel()
+        signInLabel.backgroundColor = UIColor(named: "Peach")
+        signInLabel.clipsToBounds = true
+        signInLabel.layer.cornerRadius = 10.0
+        signInLabel.font = UIFont().mainFont(displaySize: 24)
+        signInLabel.text = "로그인"
+        signInLabel.textAlignment = .center
+        signInLabel.textColor = UIColor.white
+        return signInLabel
     }()
 
-    let goSingInViewLabel: UILabel = {
-        let goSingInViewLabel = UILabel()
-        goSingInViewLabel.backgroundColor = UIColor.clear
-        goSingInViewLabel.clipsToBounds = true
-        goSingInViewLabel.layer.cornerRadius = 10.0
-        goSingInViewLabel.layer.borderWidth = 1.0
-        goSingInViewLabel.layer.borderColor = UIColor.white.cgColor
-        goSingInViewLabel.font = UIFont().mainFont(displaySize: 24)
-        goSingInViewLabel.text = "회원가입"
-        goSingInViewLabel.textAlignment = .center
-        goSingInViewLabel.textColor = UIColor(named: "brownishGray")
-        return goSingInViewLabel
+    let goSignInViewLabel: UILabel = {
+        let goSignInViewLabel = UILabel()
+        goSignInViewLabel.backgroundColor = UIColor.clear
+        goSignInViewLabel.clipsToBounds = true
+        goSignInViewLabel.layer.cornerRadius = 10.0
+        goSignInViewLabel.layer.borderWidth = 1.0
+        goSignInViewLabel.layer.borderColor = UIColor.white.cgColor
+        goSignInViewLabel.font = UIFont().mainFont(displaySize: 24)
+        goSignInViewLabel.text = "회원가입"
+        goSignInViewLabel.textAlignment = .center
+        goSignInViewLabel.textColor = UIColor(named: "brownishGray")
+        return goSignInViewLabel
     }()
 
-    let gologinViewButton: UIButton = {
+    let goSignInViewButton: UIButton = {
         UIButton()
     }()
 
-    let goSingInButton: UIButton = {
+    let goSignInButton: UIButton = {
         UIButton()
     }()
 
@@ -120,7 +120,7 @@ class FirstView: UIView {
     }
 
     func makeLoginLabelConstraint() {
-        self.loginLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
+        self.signInLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
     func prepareViews() {
@@ -138,15 +138,15 @@ class FirstView: UIView {
     }
 
     func prepareStackView() {
-        self.twoButtonStackView.addArrangedSubview(self.loginLabel)
+        self.twoButtonStackView.addArrangedSubview(self.signInLabel)
         self.makeLoginLabelConstraint()
-        self.twoButtonStackView.addArrangedSubview(self.goSingInViewLabel)
+        self.twoButtonStackView.addArrangedSubview(self.goSignInViewLabel)
 
-        addSubview(self.gologinViewButton)
-        self.gologinViewButton.equalLabelWidthHeight(targetLabel: self.loginLabel)
+        addSubview(self.goSignInViewButton)
+        self.goSignInViewButton.equalLabelWidthHeight(targetLabel: self.signInLabel)
 
-        addSubview(self.goSingInButton)
-        self.goSingInButton.equalLabelWidthHeight(targetLabel: self.goSingInViewLabel)
+        addSubview(self.goSignInButton)
+        self.goSignInButton.equalLabelWidthHeight(targetLabel: self.goSignInViewLabel)
     }
 
     override init(frame: CGRect) {

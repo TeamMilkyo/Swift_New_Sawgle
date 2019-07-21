@@ -30,8 +30,8 @@ class FirstViewController: UIViewController {
             return
         }
 
-        ownView.gologinViewButton.addTarget(self, action: #selector(self.callLoginViewController), for: .touchUpInside)
-        ownView.goSingInButton.addTarget(self, action: #selector(self.callSingInViewController), for: .touchUpInside)
+        ownView.goSignInViewButton.addTarget(self, action: #selector(self.callLoginViewController), for: .touchUpInside)
+        ownView.goSignInButton.addTarget(self, action: #selector(self.callSingInViewController), for: .touchUpInside)
     }
 
     override func loadView() {
