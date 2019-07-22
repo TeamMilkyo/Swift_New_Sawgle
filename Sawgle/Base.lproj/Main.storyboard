@@ -286,7 +286,7 @@
                                         <rect key="frame" x="16" y="38" width="256" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <connections>
-                                            <action selector="moveBirthDayView:" destination="29R-gz-cCI" eventType="touchUpInside" id="Yzq-MW-5aW"/>
+                                            <action selector="presentBirthDayView:" destination="29R-gz-cCI" eventType="touchUpInside" id="Yzq-MW-5aW"/>
                                         </connections>
                                     </button>
                                 </subviews>

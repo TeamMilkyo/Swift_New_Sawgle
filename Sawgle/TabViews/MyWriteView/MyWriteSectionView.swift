@@ -73,14 +73,14 @@ class MyWriteSectionView: UIView {
         ])
     }
 
-    func addViewItemInMyWriteSectionView() {
+    func makeSubView() {
         addSubview(self.sectionTitleLabel)
         addSubview(self.countLabel)
         addSubview(self.enterImageView)
         addSubview(self.unitLabel)
     }
 
-    func addViewItemConstraintInMyWriteSectionView() {
+    func makeSubViewConstraint() {
         self.makeSectionTitleLabelConstraint()
         self.makeCountLabelConstraint()
         self.makeUnitLabelConstraint()
@@ -91,8 +91,8 @@ class MyWriteSectionView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         layer.cornerRadius = 15
-        self.addViewItemInMyWriteSectionView()
-        self.addViewItemConstraintInMyWriteSectionView()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -196,7 +196,7 @@ class MyWriteView: UIView {
         ])
     }
 
-    func addViewItemInMyWriteView() {
+    func makeSubView() {
         addSubview(self.nameLabel)
         addSubview(self.nameImageView)
         addSubview(self.rightStackView)
@@ -209,7 +209,7 @@ class MyWriteView: UIView {
         self.myWriteSectionView.addSubview(self.goBoardButton)
     }
 
-    func addViewItemConstraint() {
+    func makeSubViewConstraint() {
         self.makeNameLabelConstraint()
         self.makeNameImageViewConstraint()
         self.makeRightStackViewConstraint()
@@ -222,7 +222,7 @@ class MyWriteView: UIView {
         self.goBoardButtonConstraint()
     }
 
-    func addStackItem() {
+    func makeStackItem() {
         self.rightStackView.addArrangedSubview(self.rightStackTitle)
         self.rightStackView.addArrangedSubview(self.dateLabel)
     }
@@ -230,9 +230,9 @@ class MyWriteView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
-        self.addViewItemInMyWriteView()
-        self.addViewItemConstraint()
-        self.addStackItem()
+        self.makeSubView()
+        self.makeSubViewConstraint()
+        self.makeStackItem()
     }
 
     required init?(coder aDecoder: NSCoder) {

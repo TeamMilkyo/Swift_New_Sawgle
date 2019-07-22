@@ -101,21 +101,25 @@ class ReplyTextHeaderView: UIView {
 
     // MARK: setConstraints
 
-    func setConstraints() {
+    func makeTitleLabelContraint() {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.titleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
             self.titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             self.titleLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.76),
         ])
+    }
 
+    func makeDateLabelContraint() {
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.dateLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
             self.dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             self.dateLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 0.8),
         ])
+    }
 
+    func makeBottomBorderViewContraint() {
         self.bottomBorderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.bottomBorderView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
@@ -123,14 +127,18 @@ class ReplyTextHeaderView: UIView {
             self.bottomBorderView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             self.bottomBorderView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
         ])
+    }
 
+    func makeHeartImageViewContraint() {
         self.heartImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.heartImageView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
             self.heartImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.25),
             self.heartImageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: -10),
         ])
+    }
 
+    func makeHeartCountLabelContraint() {
         self.heartCountLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.heartCountLabel.centerXAnchor.constraint(equalTo: self.heartImageView.centerXAnchor),
@@ -139,7 +147,15 @@ class ReplyTextHeaderView: UIView {
         ])
     }
 
-    func setSubViews() {
+    func makeSubViewConstraint() {
+        self.makeTitleLabelContraint()
+        self.makeDateLabelContraint()
+        self.makeBottomBorderViewContraint()
+        self.makeHeartImageViewContraint()
+        self.makeHeartCountLabelContraint()
+    }
+
+    func makeSubView() {
         addSubview(self.titleLabel)
         addSubview(self.dateLabel)
         addSubview(self.bottomBorderView)
@@ -156,8 +172,8 @@ class ReplyTextHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setSubViews()
-        self.setConstraints()
+        self.makeSubView()
+        self.makeSubViewConstraint()
         let date = Date()
         dateLabel.text = self.textDateFormatter.string(from: date)
     }

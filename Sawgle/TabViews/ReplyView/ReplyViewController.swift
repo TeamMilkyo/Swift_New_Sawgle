@@ -120,7 +120,7 @@ class ReplyViewController: UIViewController {
         self.setBackBarButtonItem()
         self.setNavigationItemTitleStackView(titleName: " ") // 네비게이션바 타이틀
         self.setStarBarButtonItem(count: 10)
-        self.setConstraints()
+        self.makeSubViewConstraint()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -208,7 +208,7 @@ class ReplyViewController: UIViewController {
 
     // MARK: setConstraints
 
-    func setConstraints() {
+    func makeStarButtonImageViewContraint() {
         self.starButtonImageView.translatesAutoresizingMaskIntoConstraints = false
         self.starCountLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -219,11 +219,18 @@ class ReplyViewController: UIViewController {
             starButtonImageView.heightAnchor.constraint(equalTo: starCountLabel.heightAnchor, multiplier: 0.63),
             starButtonImageView.topAnchor.constraint(equalTo: starBarButtonItemStackView.topAnchor, constant: 5),
         ])
+    }
 
+    func makeTitleImageViewConstraint() {
         NSLayoutConstraint.activate([
             titleImageView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.63),
 
         ])
+    }
+
+    func makeSubViewConstraint() {
+        self.makeStarButtonImageViewContraint()
+        self.makeTitleImageViewConstraint()
     }
 
     // MARK: - Getting Methods

@@ -40,12 +40,12 @@ class SettingTableCell: UITableViewCell {
         ])
     }
 
-    func addViewItemInSettingView() {
+    func makeSubView() {
         addSubview(self.titleLabel)
         addSubview(self.customSeparatorLine)
     }
 
-    func addViewItemConstraint() {
+    func makeSubViewContraint() {
         self.addTitleLabelConstraint()
         self.addCustomSeparatorLineConstraint()
     }
@@ -61,8 +61,8 @@ class SettingTableCell: UITableViewCell {
 
         backgroundColor = UIColor(named: "lightPale")
 
-        self.addViewItemInSettingView()
-        self.addViewItemConstraint()
+        self.makeSubView()
+        self.makeSubViewContraint()
         self.addAccessoryView()
     }
 

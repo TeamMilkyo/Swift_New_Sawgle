@@ -10,14 +10,13 @@ import UIKit
 
 class FirstViewController: UIViewController {
     /// 로그인 화면을 생성한다.
-    @objc func callSignInViewController() {
+    @objc func presentSignInViewController() {
         let signInViewController = SignInViewController()
-
         self.present(signInViewController, animated: true)
     }
 
     /// 회원가입화면을 생성한다.
-    @objc func callSignUpViewController() {
+    @objc func presentSignUpViewController() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let signUpViewControlller = storyBoard.instantiateViewController(withIdentifier: "NewSignUpViewController")
 
@@ -30,8 +29,8 @@ class FirstViewController: UIViewController {
             return
         }
 
-        ownView.goSignInViewButton.addTarget(self, action: #selector(self.callSignInViewController), for: .touchUpInside)
-        ownView.goSignUpButton.addTarget(self, action: #selector(self.callSignUpViewController), for: .touchUpInside)
+        ownView.goSignInViewButton.addTarget(self, action: #selector(self.presentSignInViewController), for: .touchUpInside)
+        ownView.goSignUpButton.addTarget(self, action: #selector(self.presentSignUpViewController), for: .touchUpInside)
     }
 
     override func loadView() {

@@ -116,7 +116,7 @@ class CustomTabBarView: UIView {
         ])
     }
 
-    func makeView() {
+    func makeSubView() {
         backgroundColor = UIColor(named: "Pale")
         addSubview(self.contentView)
         addSubview(self.customTabBar)
@@ -128,7 +128,7 @@ class CustomTabBarView: UIView {
         self.backView.addSubview(self.centerButton)
     }
 
-    func makeItemConstraints() {
+    func makeSubViewContraint() {
         self.makeCustomTabBarConstraint()
         self.makeStackConstraint(targetStack: self.leftStack)
         self.makeLeftStackConstraint()
@@ -186,8 +186,8 @@ class CustomTabBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.buttonBackImageSize = self.buttonSize + 10
-        self.makeView()
-        self.makeItemConstraints()
+        self.makeSubView()
+        self.makeSubViewContraint()
         self.insertDefaultOptionAtButton()
         self.makeCircleBackButtonImage()
         self.makeCircleBackButton()

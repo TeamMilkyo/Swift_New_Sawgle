@@ -63,7 +63,7 @@ class NewRegisterViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func moveBirthDayView(_: Any) {
+    @IBAction func presentBirthDayView(_: Any) {
         guard let birthViewController = self.storyboard?.instantiateViewController(withIdentifier: "birthDayViewController") else {
             return
         }

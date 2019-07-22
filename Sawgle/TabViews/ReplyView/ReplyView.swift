@@ -25,7 +25,7 @@ class ReplyView: UIView {
 
     // MARK: setViewConstraints
 
-    func setReplyTableViewConstratins() {
+    func makeReplyTableViewConstraint() {
         self.replyTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             replyTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -35,12 +35,20 @@ class ReplyView: UIView {
         ])
     }
 
+    func makeSubViewConstraint() {
+        self.makeReplyTableViewConstraint()
+    }
+
+    func makeSubView() {
+        self.addSubview(self.replyTableView)
+    }
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.replyTableView)
-        self.setReplyTableViewConstratins()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

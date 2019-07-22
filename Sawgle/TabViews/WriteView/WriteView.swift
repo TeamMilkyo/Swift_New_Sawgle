@@ -88,7 +88,7 @@ class WriteView: UIView {
         ])
     }
 
-    func addViewItemInWriteView() {
+    func makeSubView() {
         addSubview(self.menuView)
         addSubview(self.leftButton)
         addSubview(self.logoImageView)
@@ -96,7 +96,7 @@ class WriteView: UIView {
         addSubview(self.bottomView)
     }
 
-    func makeViewItemConstraint() {
+    func makeSubViewConstraint() {
         self.makeMenuViewConstraint()
         self.makeLogoViewConstraint()
         self.makeButtonConstarint(targetButton: self.leftButton)
@@ -113,8 +113,8 @@ class WriteView: UIView {
 
         backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
 
-        self.addViewItemInWriteView()
-        self.makeViewItemConstraint()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

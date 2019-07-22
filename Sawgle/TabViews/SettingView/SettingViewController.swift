@@ -107,7 +107,7 @@ class LineView: UIView {
         return liveView
     }()
 
-    func addLineViewConstraint() {
+    func makeLineViewConstraint() {
         self.lineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lineView.widthAnchor.constraint(equalTo: widthAnchor),
@@ -120,7 +120,7 @@ class LineView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(self.lineView)
-        self.addLineViewConstraint()
+        self.makeLineViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

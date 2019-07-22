@@ -129,7 +129,7 @@ class SignInView: UIView {
         ])
     }
 
-    func addViewItemInSignInView() {
+    func makeSubView() {
         addSubview(self.logoImageView)
         addSubview(self.titleLabel)
         addSubview(self.textFiedlStackView)
@@ -143,7 +143,7 @@ class SignInView: UIView {
         self.textFiedlStackView.addArrangedSubview(self.passwordTextField)
     }
 
-    func makeViewItemConstraint() {
+    func makeSubViewContraint() {
         self.makeLogoImageViewConstraint()
         self.makeTitleLabelConstrinat()
         self.makeTextFieldStackConstraint()
@@ -155,9 +155,9 @@ class SignInView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "Pale")
-        self.addViewItemInSignInView()
+        self.makeSubView()
+        self.makeSubViewContraint()
         self.makeStackView()
-        self.makeViewItemConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

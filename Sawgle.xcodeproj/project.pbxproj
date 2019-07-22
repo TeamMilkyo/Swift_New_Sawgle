@@ -176,7 +176,7 @@
 				B470905322B71CC90049FB1C /* Assets.xcassets */,
 				B42BF59B227AA3CA00D91F09 /* Font */,
 				B4ED24EE229783730000598F /* FirstView */,
-				B4ED24F1229784D70000598F /* LoginView */,
+				B4ED24F1229784D70000598F /* SignInView */,
 				B4AF0AE9229B7DE2008EEED7 /* CustomTabBar */,
 				B4AF0AEE229B80F8008EEED7 /* TabViews */,
 				389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */,
@@ -211,13 +211,13 @@
 			path = FirstView;
 			sourceTree = "<group>";
 		};
-		B4ED24F1229784D70000598F /* LoginView */ = {
+		B4ED24F1229784D70000598F /* SignInView */ = {
 			isa = PBXGroup;
 			children = (
 				B42BF59C227AAAC300D91F09 /* SignInView.swift */,
 				B4ED24F2229784F90000598F /* SignInViewController.swift */,
 			);
-			path = LoginView;
+			path = SignInView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

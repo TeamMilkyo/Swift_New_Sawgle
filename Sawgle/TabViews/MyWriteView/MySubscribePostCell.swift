@@ -106,7 +106,7 @@ class mySubscribePostCell: UICollectionViewCell {
         ])
     }
 
-    func addViewItem() {
+    func makeSubView() {
         addSubview(self.nameLabel)
         addSubview(self.timeLabel)
         addSubview(self.postTextView)
@@ -114,7 +114,7 @@ class mySubscribePostCell: UICollectionViewCell {
         addSubview(self.goPostButton)
     }
 
-    func addVieItemConstraint() {
+    func makeSubViewContraint() {
         self.makeNameLabelConstraint()
         self.makeTimeLabelConstraint()
         self.makePostTextViewConstraint()
@@ -127,8 +127,8 @@ class mySubscribePostCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "brownish")
         layer.cornerRadius = 15
-        self.addViewItem()
-        self.addVieItemConstraint()
+        self.makeSubView()
+        self.makeSubViewContraint()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -123,38 +123,36 @@ class FirstView: UIView {
         self.signInLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
-    func prepareViews() {
-        addSubview(self.panHeartImageView)
+    func makeSubViewConstraint() {
         self.makePanHeartImageViewConstraint()
-
-        addSubview(self.panImageView)
         self.makePanImageViewConstraint()
-
-        addSubview(self.homeTitleLabel)
         self.makeHomeTitleLabelConstrinat()
-
-        addSubview(self.twoButtonStackView)
         self.makeTwoButtonStackConstraint()
+        self.makeSignInLabelConstraint()
     }
 
-    func prepareStackView() {
+    func makeStackView() {
         self.twoButtonStackView.addArrangedSubview(self.signInLabel)
-        self.makeSignInLabelConstraint()
         self.twoButtonStackView.addArrangedSubview(self.goSignUpViewLabel)
-
-        addSubview(self.goSignInViewButton)
         self.goSignInViewButton.equalLabelWidthHeight(targetLabel: self.signInLabel)
-
-        addSubview(self.goSignUpButton)
         self.goSignUpButton.equalLabelWidthHeight(targetLabel: self.goSignUpViewLabel)
+    }
+
+    func makeSubView() {
+        addSubview(self.panHeartImageView)
+        addSubview(self.panImageView)
+        addSubview(self.homeTitleLabel)
+        addSubview(self.twoButtonStackView)
+        addSubview(self.goSignInViewButton)
+        addSubview(self.goSignUpButton)
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "Pale")
-
-        self.prepareViews()
-        self.prepareStackView()
+        self.makeSubView()
+        self.makeSubViewConstraint()
+        self.makeStackView()
     }
 
     required init?(coder aDecoder: NSCoder) {
