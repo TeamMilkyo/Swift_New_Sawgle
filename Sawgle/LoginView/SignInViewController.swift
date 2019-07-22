@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  Sawgle
 //
 //  Created by Meo MacBook Pro on 24/05/2019.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
     // 현재 뷰를 dismiss한다.
     @objc func dismissViewController() {
         self.dismiss(animated: true)
     }
 
     /// 백버튼에 액션을 연결한다.
-    func linkActionInLoginVC() {
-        guard let ownView = view as? LoginView else {
+    func linkActionInSignInViewController() {
+        guard let ownView = view as? SignInView else {
             return
         }
 
@@ -24,10 +24,10 @@ class LoginViewController: UIViewController {
     }
 
     override func loadView() {
-        view = LoginView()
+        view = SignInView()
     }
 
     override func viewDidLoad() {
-        self.linkActionInLoginVC()
+        self.linkActionInSignInViewController()
     }
 }

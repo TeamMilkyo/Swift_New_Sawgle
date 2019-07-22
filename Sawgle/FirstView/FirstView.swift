@@ -49,7 +49,7 @@ class FirstView: UIView {
         return signInLabel
     }()
 
-    let goSignInViewLabel: UILabel = {
+    let goSignUpViewLabel: UILabel = {
         let goSignInViewLabel = UILabel()
         goSignInViewLabel.backgroundColor = UIColor.clear
         goSignInViewLabel.clipsToBounds = true
@@ -67,7 +67,7 @@ class FirstView: UIView {
         UIButton()
     }()
 
-    let goSignInButton: UIButton = {
+    let goSignUpButton: UIButton = {
         UIButton()
     }()
 
@@ -119,7 +119,7 @@ class FirstView: UIView {
         self.twoButtonStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
     }
 
-    func makeLoginLabelConstraint() {
+    func makeSignInLabelConstraint() {
         self.signInLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
@@ -139,14 +139,14 @@ class FirstView: UIView {
 
     func prepareStackView() {
         self.twoButtonStackView.addArrangedSubview(self.signInLabel)
-        self.makeLoginLabelConstraint()
-        self.twoButtonStackView.addArrangedSubview(self.goSignInViewLabel)
+        self.makeSignInLabelConstraint()
+        self.twoButtonStackView.addArrangedSubview(self.goSignUpViewLabel)
 
         addSubview(self.goSignInViewButton)
         self.goSignInViewButton.equalLabelWidthHeight(targetLabel: self.signInLabel)
 
-        addSubview(self.goSignInButton)
-        self.goSignInButton.equalLabelWidthHeight(targetLabel: self.goSignInViewLabel)
+        addSubview(self.goSignUpButton)
+        self.goSignUpButton.equalLabelWidthHeight(targetLabel: self.goSignUpViewLabel)
     }
 
     override init(frame: CGRect) {

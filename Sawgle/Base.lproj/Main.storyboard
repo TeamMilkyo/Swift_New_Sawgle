@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--NewRegisterVC-->
+        <!--NewSignUpViewController-->
         <scene sceneID="tBM-RK-Tdj">
             <objects>
-                <viewController storyboardIdentifier="NewRegisterVC" title="NewRegisterVC" id="29R-gz-cCI" customClass="NewRegisterViewController" customModule="Sawgle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewSignUpViewController" title="NewSignUpViewController" id="29R-gz-cCI" customClass="NewRegisterViewController" customModule="Sawgle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IB8-mw-a9P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="-716" y="-186"/>
         </scene>
-        <!--birthDayVC-->
+        <!--birthDayViewController-->
         <scene sceneID="ntl-gs-QC9">
             <objects>
-                <viewController storyboardIdentifier="birthDayVC" title="birthDayVC" id="yd4-yV-6gp" customClass="BirthDayVIewController" customModule="Sawgle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BirthDayVIewController" title="birthDayViewController" id="yd4-yV-6gp" customClass="BirthDayVIewController" customModule="Sawgle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WYe-X6-Kya">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -393,7 +392,7 @@
                                             <color key="titleColor" name="brownishGray"/>
                                         </state>
                                         <connections>
-                                            <action selector="moveParentVC:" destination="yd4-yV-6gp" eventType="touchUpInside" id="ow0-FB-KMr"/>
+                                            <action selector="moveParentViewController:" destination="yd4-yV-6gp" eventType="touchUpInside" id="ow0-FB-KMr"/>
                                         </connections>
                                     </button>
                                 </subviews>

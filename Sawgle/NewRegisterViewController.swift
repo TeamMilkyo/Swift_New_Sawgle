@@ -64,12 +64,12 @@ class NewRegisterViewController: UIViewController {
     }
 
     @IBAction func moveBirthDayView(_: Any) {
-        guard let birthVC = self.storyboard?.instantiateViewController(withIdentifier: "birthDayVC") else {
+        guard let birthViewController = self.storyboard?.instantiateViewController(withIdentifier: "birthDayViewController") else {
             return
         }
 
-        birthVC.modalPresentationStyle = .overCurrentContext
-        self.present(birthVC, animated: true)
+        birthViewController.modalPresentationStyle = .overCurrentContext
+        self.present(birthViewController, animated: true)
     }
 
     override func viewDidLayoutSubviews() {

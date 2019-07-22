@@ -9,12 +9,12 @@
 import UIKit
 
 class CustomTabBarController: UIViewController {
-    var homeVC: HomeViewController?
-    var boomarkVC: BookMarkViewController?
-    var mywriteVC: MyWriteViewController?
-    var settingVC: SettingViewController?
-    var navigation: UINavigationController?
-    var vcList = [UIViewController]()
+    var homeViewController: HomeViewController?
+    var boomarkViewController: BookMarkViewController?
+    var mywriteViewController: MyWriteViewController?
+    var settingViewController: SettingViewController?
+    var navigationViewController: UINavigationController?
+    var viewControllerList = [UIViewController]()
     var prevIndex: Int?
 
     lazy var ownView: CustomTabBarView = {
@@ -45,13 +45,13 @@ class CustomTabBarController: UIViewController {
         }
 
         let prevViewArrayNumber = prevSelectedIndex - 1
-        self.navigation?.willMove(toParent: nil)
-        self.navigation?.view.removeFromSuperview()
-        self.navigation?.removeFromParent()
+        self.navigationViewController?.willMove(toParent: nil)
+        self.navigationViewController?.view.removeFromSuperview()
+        self.navigationViewController?.removeFromParent()
 
-        self.vcList[prevViewArrayNumber].willMove(toParent: nil)
-        self.vcList[prevViewArrayNumber].view.removeFromSuperview()
-        self.vcList[prevViewArrayNumber].removeFromParent()
+        self.viewControllerList[prevViewArrayNumber].willMove(toParent: nil)
+        self.viewControllerList[prevViewArrayNumber].view.removeFromSuperview()
+        self.viewControllerList[prevViewArrayNumber].removeFromParent()
     }
 
     /// 새로운 뷰로 이동한다.
@@ -64,12 +64,12 @@ class CustomTabBarController: UIViewController {
             return
         }
 
-        let newNavigation = UINavigationController(rootViewController: vcList[index])
+        let newNavigation = UINavigationController(rootViewController: viewControllerList[index])
         newNavigation.navigationBar.barTintColor = UIColor.white
         newNavigation.navigationBar.shadowImage = UIImage()
         newNavigation.navigationBar.titleTextAttributes = [.font: UIFont().mainFont(displaySize: 24), .foregroundColor: titleColor]
 
-        self.navigation = newNavigation
+        self.navigationViewController = newNavigation
         newNavigation.view.frame = targetView.contentView.bounds
         addChild(newNavigation)
         targetView.contentView.addSubview(newNavigation.view)
@@ -109,11 +109,11 @@ class CustomTabBarController: UIViewController {
     }
 
     func makeViewList() {
-        guard let views = [homeVC, boomarkVC, mywriteVC, settingVC] as? [UIViewController] else {
+        guard let views = [homeViewController, boomarkViewController, mywriteViewController, settingViewController] as? [UIViewController] else {
             return
         }
 
-        self.vcList = views
+        self.viewControllerList = views
     }
 
     override func loadView() {
@@ -121,10 +121,10 @@ class CustomTabBarController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.homeVC = HomeViewController()
-        self.boomarkVC = BookMarkViewController()
-        self.mywriteVC = MyWriteViewController()
-        self.settingVC = SettingViewController()
+        self.homeViewController = HomeViewController()
+        self.boomarkViewController = BookMarkViewController()
+        self.mywriteViewController = MyWriteViewController()
+        self.settingViewController = SettingViewController()
 
         self.makeViewList()
         self.linkTargetAction()

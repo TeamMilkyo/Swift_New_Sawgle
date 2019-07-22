@@ -13,7 +13,7 @@ class WriteViewController: UIViewController {
         dismiss(animated: true)
     }
 
-    func linkActionInWriteVC() {
+    func linkActionInWriteViewController() {
         guard let ownView = view as? WriteView else { return }
 
         ownView.leftButton.addTarget(self, action: #selector(self.cancelView), for: .touchUpInside)
@@ -21,6 +21,6 @@ class WriteViewController: UIViewController {
 
     override func loadView() {
         view = WriteView()
-        self.linkActionInWriteVC()
+        self.linkActionInWriteViewController()
     }
 }

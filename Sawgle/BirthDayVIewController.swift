@@ -9,7 +9,7 @@
 import UIKit
 
 class BirthDayVIewController: UIViewController {
-    @IBAction func moveParentVC(_: Any) {
+    @IBAction func moveParentViewController(_: Any) {
         self.dismiss(animated: true)
     }
 
