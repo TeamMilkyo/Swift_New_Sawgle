@@ -40,18 +40,14 @@
 		B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9122929E5400B10E46 /* SCDream5.otf */; };
 		B4ED24F02297839A0000598F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24EF2297839A0000598F /* FirstViewController.swift */; };
 		B4ED24F3229784F90000598F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24F2229784F90000598F /* LoginViewController.swift */; };
-		EF36CB2B8F0EE825FBA6DC8C /* Pods_Sawgle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65672F71B5F0F99EA3609B7F /* Pods_Sawgle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegisterViewController.swift; sourceTree = "<group>"; };
-		3125A20FDF6E0232668DB8E6 /* Pods-Sawgle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sawgle.debug.xcconfig"; path = "Target Support Files/Pods-Sawgle/Pods-Sawgle.debug.xcconfig"; sourceTree = "<group>"; };
-		3414CC6BD605A762DEE5DF34 /* Pods-Sawgle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sawgle.release.xcconfig"; path = "Target Support Files/Pods-Sawgle/Pods-Sawgle.release.xcconfig"; sourceTree = "<group>"; };
 		386CD00D22B64C7800D69166 /* ReplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		386CD01022B7834700D69166 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
 		386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
 		389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawgleAPIData.swift; sourceTree = "<group>"; };
-		65672F71B5F0F99EA3609B7F /* Pods_Sawgle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sawgle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B406BA5022B3266A009B921D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B406BA5822B354AD009B921D /* SettingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableCell.swift; sourceTree = "<group>"; };
 		B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayVIewController.swift; sourceTree = "<group>"; };
@@ -89,21 +85,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF36CB2B8F0EE825FBA6DC8C /* Pods_Sawgle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2534AB42D1404F3324F2CE46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				65672F71B5F0F99EA3609B7F /* Pods_Sawgle.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		386CD00F22B7833800D69166 /* ReplyView */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +159,6 @@
 			children = (
 				B4BDA9AE227A759E0064B561 /* Sawgle */,
 				B4BDA9AD227A759E0064B561 /* Products */,
-				DD2C7687C7A29EF40A767A43 /* Pods */,
-				2534AB42D1404F3324F2CE46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,16 +220,6 @@
 			path = LoginView;
 			sourceTree = "<group>";
 		};
-		DD2C7687C7A29EF40A767A43 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3125A20FDF6E0232668DB8E6 /* Pods-Sawgle.debug.xcconfig */,
-				3414CC6BD605A762DEE5DF34 /* Pods-Sawgle.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,11 +227,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4BDA9BE227A759F0064B561 /* Build configuration list for PBXNativeTarget "Sawgle" */;
 			buildPhases = (
-				22AB7F68265D5507546734F5 /* [CP] Check Pods Manifest.lock */,
 				B4BDA9A8227A759E0064B561 /* Sources */,
 				B4BDA9A9227A759E0064B561 /* Frameworks */,
 				B4BDA9AA227A759E0064B561 /* Resources */,
-				0D6B4DA79717A505A2236AA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,57 +290,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0D6B4DA79717A505A2236AA1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sawgle/Pods-Sawgle-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sawgle/Pods-Sawgle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		22AB7F68265D5507546734F5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sawgle-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4BDA9A8227A759E0064B561 /* Sources */ = {
@@ -542,7 +464,6 @@
 		};
 		B4BDA9BF227A759F0064B561 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3125A20FDF6E0232668DB8E6 /* Pods-Sawgle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,7 +483,6 @@
 		};
 		B4BDA9C0227A759F0064B561 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3414CC6BD605A762DEE5DF34 /* Pods-Sawgle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
