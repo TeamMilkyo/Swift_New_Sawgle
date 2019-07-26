@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class StartViewController: UIViewController {
     /// 로그인 화면을 생성한다.
     @objc func presentSignInViewController() {
         let signInViewController = SignInViewController()
@@ -25,16 +25,16 @@ class FirstViewController: UIViewController {
 
     /// 각각 버튼에 액션을 연결한다.
     func linkActionInFirstView() {
-        guard let ownView = view as? FirstView else {
+        guard let ownView = view as? StartView else {
             return
         }
 
         ownView.goSignInViewButton.addTarget(self, action: #selector(self.presentSignInViewController), for: .touchUpInside)
-        ownView.goSignUpButton.addTarget(self, action: #selector(self.presentSignUpViewController), for: .touchUpInside)
+        ownView.goSignUpViewButton.addTarget(self, action: #selector(self.presentSignUpViewController), for: .touchUpInside)
     }
 
     override func loadView() {
-        view = FirstView()
+        view = StartView()
     }
 
     override func viewDidLoad() {

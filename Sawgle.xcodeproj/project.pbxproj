@@ -27,7 +27,7 @@
 		B4AF0AF8229BA3D6008EEED7 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AF7229BA3D6008EEED7 /* WriteView.swift */; };
 		B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF0AFA229BCBE6008EEED7 /* WriteViewController.swift */; };
 		B4BDA9B0227A759E0064B561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9AF227A759E0064B561 /* AppDelegate.swift */; };
-		B4BDA9B2227A759E0064B561 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9B1227A759E0064B561 /* FirstView.swift */; };
+		B4BDA9B2227A759E0064B561 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9B1227A759E0064B561 /* StartView.swift */; };
 		B4BDA9B5227A759E0064B561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9B3227A759E0064B561 /* Main.storyboard */; };
 		B4BDA9BA227A759F0064B561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9B8227A759F0064B561 /* LaunchScreen.storyboard */; };
 		B4BDA9C8227A83CE0064B561 /* SSShinb7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4BDA9C7227A83CC0064B561 /* SSShinb7.ttf */; };
@@ -38,7 +38,7 @@
 		B4CE604222A50526009E889A /* MySubscribePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CE604122A50526009E889A /* MySubscribePostCell.swift */; };
 		B4ED24EC22977AC90000598F /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9022929E4C00B10E46 /* SCDream4.otf */; };
 		B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9122929E5400B10E46 /* SCDream5.otf */; };
-		B4ED24F02297839A0000598F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24EF2297839A0000598F /* FirstViewController.swift */; };
+		B4ED24F02297839A0000598F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24EF2297839A0000598F /* StartViewController.swift */; };
 		B4ED24F3229784F90000598F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24F2229784F90000598F /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		B4AF0AFA229BCBE6008EEED7 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		B4BDA9AC227A759E0064B561 /* Sawgle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sawgle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4BDA9AF227A759E0064B561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4BDA9B1227A759E0064B561 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		B4BDA9B1227A759E0064B561 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B4BDA9B4227A759E0064B561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4BDA9B9227A759F0064B561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4BDA9BB227A759F0064B561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		B4CE603B22A4E7CD009E889A /* MyWriteSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWriteSectionView.swift; sourceTree = "<group>"; };
 		B4CE603F22A4FBA9009E889A /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
 		B4CE604122A50526009E889A /* MySubscribePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubscribePostCell.swift; sourceTree = "<group>"; };
-		B4ED24EF2297839A0000598F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		B4ED24EF2297839A0000598F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B4ED24F2229784F90000598F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,8 +205,8 @@
 		B4ED24EE229783730000598F /* FirstView */ = {
 			isa = PBXGroup;
 			children = (
-				B4BDA9B1227A759E0064B561 /* FirstView.swift */,
-				B4ED24EF2297839A0000598F /* FirstViewController.swift */,
+				B4BDA9B1227A759E0064B561 /* StartView.swift */,
+				B4ED24EF2297839A0000598F /* StartViewController.swift */,
 			);
 			path = FirstView;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				B4AF0AF2229BA35C008EEED7 /* BookMarkViewController.swift in Sources */,
 				389F08F822BA26BC00EA5AD6 /* SawgleAPIData.swift in Sources */,
 				B4AF0AF6229BA3B4008EEED7 /* SettingViewController.swift in Sources */,
-				B4BDA9B2227A759E0064B561 /* FirstView.swift in Sources */,
+				B4BDA9B2227A759E0064B561 /* StartView.swift in Sources */,
 				B4ED24F3229784F90000598F /* SignInViewController.swift in Sources */,
 				B4AF0AED229B804B008EEED7 /* CustomTabBarController.swift in Sources */,
 				B4AF0AF0229B810A008EEED7 /* HomeViewController.swift in Sources */,
@@ -319,7 +319,7 @@
 				B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */,
 				B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */,
 				B4CE603A22A4AC62009E889A /* MyWriteView.swift in Sources */,
-				B4ED24F02297839A0000598F /* FirstViewController.swift in Sources */,
+				B4ED24F02297839A0000598F /* StartViewController.swift in Sources */,
 				386CD00E22B64C7800D69166 /* ReplyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

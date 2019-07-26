@@ -156,8 +156,8 @@ class SignInView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "Pale")
         self.makeSubView()
-        self.makeSubViewContraint()
         self.makeStackView()
+        self.makeSubViewContraint()
     }
 
     required init?(coder aDecoder: NSCoder) {
