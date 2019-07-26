@@ -12,7 +12,7 @@ class SettingTableCell: UITableViewCell {
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont().mainFont(displaySize: 15)
-        titleLabel.textColor = UIColor(named: "Puce")
+        titleLabel.textColor = ColorList.puce
         return titleLabel
     }()
 
@@ -53,13 +53,13 @@ class SettingTableCell: UITableViewCell {
     func addAccessoryView() {
         let disclosureIndicator = UIImageView(image: UIImage(named: "DisclosureIndicator"))
         self.accessoryView = disclosureIndicator
-        self.tintColor = UIColor(named: "PaleBrown")
+        self.tintColor = ColorList.paleBrown
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        backgroundColor = UIColor(named: "lightPale")
+        backgroundColor = ColorList.lightPeach
 
         self.makeSubView()
         self.makeSubViewContraint()
@@ -74,8 +74,8 @@ class SettingTableCell: UITableViewCell {
 class SettingTableCellWithSwitch: SettingTableCell {
     let toggleSwitch: UISwitch = {
         let toggleSwitch = UISwitch()
-        toggleSwitch.onTintColor = UIColor(named: "lightGreyGreen")
-        toggleSwitch.layer.backgroundColor = UIColor(named: "beige")?.cgColor
+        toggleSwitch.onTintColor = ColorList.lightGreyGreen
+        toggleSwitch.layer.backgroundColor = ColorList.beige?.cgColor
         return toggleSwitch
     }()
 

@@ -16,7 +16,7 @@ class MyWriteView: UIView {
     let nameLabel: UILabel = {
         let nameLael = UILabel()
         nameLael.font = UIFont().mainFont(displaySize: 25)
-        nameLael.textColor = UIColor(named: "brownishGray")
+        nameLael.textColor = ColorList.brownishGray
         nameLael.sizeToFit()
         nameLael.baselineAdjustment = .alignCenters
         return nameLael
@@ -39,7 +39,7 @@ class MyWriteView: UIView {
     let rightStackTitle: UILabel = {
         let rightStackTitle = UILabel()
         rightStackTitle.font = UIFont(name: "S-CoreDream-3Light", size: 10)
-        rightStackTitle.textColor = UIColor(named: "PaleBrown")
+        rightStackTitle.textColor = ColorList.paleBrown
         rightStackTitle.text = "마지막 쓴 글"
         rightStackTitle.textAlignment = .right
         return rightStackTitle
@@ -48,7 +48,7 @@ class MyWriteView: UIView {
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.font = UIFont(name: "S-CoreDream-3Light", size: 13)
-        dateLabel.textColor = UIColor(named: "brownishGray")
+        dateLabel.textColor = ColorList.brownishGray
         dateLabel.textAlignment = .right
         return dateLabel
     }()
@@ -74,7 +74,7 @@ class MyWriteView: UIView {
     let goBoardButton: UIButton = {
         let goBoardButton = UIButton()
         goBoardButton.setTitle("게시판에서 보기", for: .normal)
-        goBoardButton.setTitleColor(UIColor(named: "NewBrown"), for: .normal)
+        goBoardButton.setTitleColor(ColorList.newBrown, for: .normal)
         goBoardButton.titleLabel?.font = UIFont(name: "S-CoreDream-3Light", size: 10)
         return goBoardButton
     }()
@@ -97,7 +97,7 @@ class MyWriteView: UIView {
         layout.minimumInteritemSpacing = 10.0
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         let mySubscribePostView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        mySubscribePostView.backgroundColor = UIColor(named: "Pale")
+        mySubscribePostView.backgroundColor = ColorList.pale
         mySubscribePostView.showsHorizontalScrollIndicator = false
         return mySubscribePostView
     }()

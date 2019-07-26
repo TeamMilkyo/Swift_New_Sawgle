@@ -37,61 +37,24 @@ class StartView: UIView {
         return buttonStack
     }()
 
-//    let signInLabel: UILabel = {
-//        let signInLabel = UILabel()
-//        signInLabel.backgroundColor = UIColor(named: "Peach")
-//        signInLabel.clipsToBounds = true
-//        signInLabel.layer.cornerRadius = 10.0
-//        signInLabel.font = UIFont().mainFont(displaySize: 24)
-//        signInLabel.text = "로그인"
-//        signInLabel.textAlignment = .center
-//        signInLabel.textColor = UIColor.white
-//        return signInLabel
-//    }()
-//
-//    let goSignUpViewLabel: UILabel = {
-//        let goSignInViewLabel = UILabel()
-//        goSignInViewLabel.backgroundColor = UIColor.clear
-//        goSignInViewLabel.clipsToBounds = true
-//        goSignInViewLabel.layer.cornerRadius = 10.0
-//        goSignInViewLabel.layer.borderWidth = 1.0
-//        goSignInViewLabel.layer.borderColor = UIColor.white.cgColor
-//        goSignInViewLabel.font = UIFont().mainFont(displaySize: 24)
-//        goSignInViewLabel.text = "회원가입"
-//        goSignInViewLabel.textAlignment = .center
-//        goSignInViewLabel.textColor = UIColor(named: "brownishGray")
-//        return goSignInViewLabel
-//    }()
+    let presentSignInViewButton: UIButton = {
+        if let backgroundColor = ColorList.peach {
+            return UIButton().makeDefaultButton(title: "로그인", titleColor: UIColor.white, backgrondColor: backgroundColor)
+        }
 
-    let goSignInViewButton: UIButton = {
-        UIButton()
+        return UIButton().makeDefaultButton(title: "로그인", titleColor: UIColor.white, backgrondColor: UIColor.orange)
     }()
 
-    let goSignUpViewButton: UIButton = {
-        UIButton()
+    let presentSignUpViewButton: UIButton = {
+        if let titleColor = ColorList.brownishGray {
+            let button = UIButton().makeDefaultButton(title: "회원가입", titleColor: titleColor, backgrondColor: UIColor.clear)
+            button.layer.borderWidth = 3.0
+            button.layer.borderColor = UIColor.white.cgColor
+            return button
+        }
+
+        return UIButton().makeDefaultButton(title: "회원가입", titleColor: UIColor.brown, backgrondColor: UIColor.clear)
     }()
-
-    func makeDefaultButton(target: UIButton, title: String, titleColor: UIColor, backgrondColor: UIColor) {
-        target.backgroundColor = backgrondColor
-        target.clipsToBounds = true
-        target.layer.cornerRadius = 10.0
-        target.titleLabel?.font = UIFont().mainFont(displaySize: 24)
-        target.setTitle(title, for: .normal)
-        target.titleLabel?.textAlignment = .center
-        target.setTitleColor(titleColor, for: .normal)
-    }
-
-    func makeSignInViewButton() {
-        guard let backgroundColor = UIColor(named: "Peach") else { return }
-        self.makeDefaultButton(target: self.goSignInViewButton, title: "로그인", titleColor: UIColor.white, backgrondColor: backgroundColor)
-    }
-
-    func makeSignUpViewButton() {
-        guard let titleColor = UIColor(named: "brownishGray") else { return }
-        self.makeDefaultButton(target: self.goSignUpViewButton, title: "회원가입", titleColor: titleColor, backgrondColor: UIColor.clear)
-        self.goSignUpViewButton.layer.borderWidth = 3.0
-        self.goSignUpViewButton.layer.borderColor = UIColor.white.cgColor
-    }
 
     func makePanHeartImageViewConstraint() {
         self.panHeartImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -142,7 +105,7 @@ class StartView: UIView {
     }
 
     func makeSignInLabelConstraint() {
-        self.goSignInViewButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
+        self.presentSignInViewButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
     func makeSubViewConstraint() {
@@ -154,10 +117,8 @@ class StartView: UIView {
     }
 
     func makeStackView() {
-        self.twoButtonStackView.addArrangedSubview(self.goSignInViewButton)
-        self.twoButtonStackView.addArrangedSubview(self.goSignUpViewButton)
-        self.makeSignInViewButton()
-        self.makeSignUpViewButton()
+        self.twoButtonStackView.addArrangedSubview(self.presentSignInViewButton)
+        self.twoButtonStackView.addArrangedSubview(self.presentSignUpViewButton)
     }
 
     func makeSubView() {
@@ -167,25 +128,21 @@ class StartView: UIView {
         addSubview(self.twoButtonStackView)
     }
 
+    func linkActionInStartView() {
+        self.presentSignInViewButton.addTarget(StartViewController(), action: #selector(StartViewController.presentSignInViewController), for: .touchUpInside)
+        self.presentSignUpViewButton.addTarget(StartViewController(), action: #selector(StartViewController.presentSignUpViewController), for: .touchUpInside)
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(named: "Pale")
+        backgroundColor = ColorList.pale
         self.makeSubView()
         self.makeStackView()
         self.makeSubViewConstraint()
+        self.linkActionInStartView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
-
-// extension UIView {
-//    func equalLabelWidthHeight(targetLabel: UIButton) {
-//        self.translatesAutoresizingMaskIntoConstraints = false
-//        self.widthAnchor.constraint(equalTo: targetLabel.widthAnchor).isActive = true
-//        self.heightAnchor.constraint(equalTo: targetLabel.heightAnchor).isActive = true
-//        self.centerXAnchor.constraint(equalTo: targetLabel.centerXAnchor).isActive = true
-//        self.centerYAnchor.constraint(equalTo: targetLabel.centerYAnchor).isActive = true
-//    }
-// }

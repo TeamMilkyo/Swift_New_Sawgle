@@ -40,6 +40,8 @@
 		B4ED24ED22977ACB0000598F /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = B4189F9122929E5400B10E46 /* SCDream5.otf */; };
 		B4ED24F02297839A0000598F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24EF2297839A0000598F /* StartViewController.swift */; };
 		B4ED24F3229784F90000598F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED24F2229784F90000598F /* SignInViewController.swift */; };
+		B4FDCBBE22EB6CBC001F01D3 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */; };
+		B4FDCBC022EB7126001F01D3 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		B4CE604122A50526009E889A /* MySubscribePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubscribePostCell.swift; sourceTree = "<group>"; };
 		B4ED24EF2297839A0000598F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B4ED24F2229784F90000598F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
+		B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +179,7 @@
 			children = (
 				B470905322B71CC90049FB1C /* Assets.xcassets */,
 				B42BF59B227AA3CA00D91F09 /* Font */,
-				B4ED24EE229783730000598F /* FirstView */,
+				B4ED24EE229783730000598F /* StartView */,
 				B4ED24F1229784D70000598F /* SignInView */,
 				B4AF0AE9229B7DE2008EEED7 /* CustomTabBar */,
 				B4AF0AEE229B80F8008EEED7 /* TabViews */,
@@ -187,6 +191,8 @@
 				B4BDA9BB227A759F0064B561 /* Info.plist */,
 				B4BDA9CB227A87D80064B561 /* FontList.swift */,
 				B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */,
+				B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */,
+				B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */,
 			);
 			path = Sawgle;
 			sourceTree = "<group>";
@@ -202,13 +208,13 @@
 			path = MyWriteView;
 			sourceTree = "<group>";
 		};
-		B4ED24EE229783730000598F /* FirstView */ = {
+		B4ED24EE229783730000598F /* StartView */ = {
 			isa = PBXGroup;
 			children = (
 				B4BDA9B1227A759E0064B561 /* StartView.swift */,
 				B4ED24EF2297839A0000598F /* StartViewController.swift */,
 			);
-			path = FirstView;
+			path = StartView;
 			sourceTree = "<group>";
 		};
 		B4ED24F1229784D70000598F /* SignInView */ = {
@@ -296,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FDCBC022EB7126001F01D3 /* UIButtonExtension.swift in Sources */,
 				B4AF0AEB229B7DFC008EEED7 /* CustomTabBarView.swift in Sources */,
 				B406BA5122B3266A009B921D /* SettingView.swift in Sources */,
 				386CD01322B7872F00D69166 /* ReplyTableViewCell.swift in Sources */,
@@ -317,6 +324,7 @@
 				B4BDA9B0227A759E0064B561 /* AppDelegate.swift in Sources */,
 				B4CE603C22A4E7CD009E889A /* MyWriteSectionView.swift in Sources */,
 				B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */,
+				B4FDCBBE22EB6CBC001F01D3 /* ColorList.swift in Sources */,
 				B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */,
 				B4CE603A22A4AC62009E889A /* MyWriteView.swift in Sources */,
 				B4ED24F02297839A0000598F /* StartViewController.swift in Sources */,

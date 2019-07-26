@@ -60,7 +60,7 @@ class CustomTabBarController: UIViewController {
             return
         }
 
-        guard let titleColor = UIColor(named: "brownishGray") else {
+        guard let titleColor = ColorList.brownishGray else {
             return
         }
 

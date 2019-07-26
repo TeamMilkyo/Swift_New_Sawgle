@@ -23,7 +23,7 @@ class WriteView: UIView {
 
     let menuView: UIView = {
         let menuView = UIView()
-        menuView.backgroundColor = UIColor(named: "Pale")
+        menuView.backgroundColor = ColorList.pale
         return menuView
     }()
 
@@ -38,13 +38,13 @@ class WriteView: UIView {
 
     let leftButton: UIButton = {
         let leftButton = UIButton().makeSideButton(title: "취소")
-        leftButton.setTitleColor(UIColor(named: "brownishGray"), for: .normal)
+        leftButton.setTitleColor(ColorList.brownishGray, for: .normal)
         return leftButton
     }()
 
     let rightButton: UIButton = {
         let rightButton = UIButton().makeSideButton(title: "써글")
-        rightButton.setTitleColor(UIColor(named: "brownishGray"), for: .normal)
+        rightButton.setTitleColor(ColorList.brownishGray, for: .normal)
         return rightButton
     }()
 

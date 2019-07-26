@@ -20,7 +20,7 @@ class SignInView: UIView {
         return logoImageView
     }()
 
-    let titleLabel: UILabel = {
+    let signInTitleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont().mainFont(displaySize: 60)
         titleLabel.text = "Sawgle"
@@ -37,27 +37,19 @@ class SignInView: UIView {
     }()
 
     let idTextField: UITextField = {
-        UITextField().makeTextField(placeHoldText: "ID")
+        UITextField()
     }()
 
     let passwordTextField: UITextField = {
-        UITextField().makeTextField(placeHoldText: "Password")
-    }()
-
-    let signInLabel: UILabel = {
-        let signInLabel = UILabel()
-        signInLabel.backgroundColor = UIColor.white
-        signInLabel.clipsToBounds = true
-        signInLabel.layer.cornerRadius = 10.0
-        signInLabel.font = UIFont().mainFont(displaySize: 24)
-        signInLabel.text = "로그인"
-        signInLabel.textAlignment = .center
-        signInLabel.textColor = UIColor(named: "brownishGray")
-        return signInLabel
+        UITextField()
     }()
 
     let signInButton: UIButton = {
-        UIButton()
+        if let buttonColor = ColorList.brownishGray {
+            return UIButton().makeDefaultButton(title: "로그인", titleColor: buttonColor, backgrondColor: .white)
+        }
+
+        return UIButton().makeDefaultButton(title: "로그인", titleColor: .black, backgrondColor: .white)
     }()
 
     let backButton: UIButton = {
@@ -81,9 +73,9 @@ class SignInView: UIView {
     }
 
     func makeTitleLabelConstrinat() {
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 0.0).isActive = true
-        self.titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        self.signInTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.signInTitleLabel.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 0.0).isActive = true
+        self.signInTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
 
     func makeTextFieldStackConstraint() {
@@ -105,20 +97,12 @@ class SignInView: UIView {
         self.idTextField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
     }
 
-    func makeSignInLabelConstraint() {
-        self.signInLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.signInLabel.topAnchor.constraint(equalTo: self.textFiedlStackView.bottomAnchor, constant: 20).isActive = true
-        self.signInLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        self.signInLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        self.signInLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
-    }
-
-    func makeSignInButtonConstraint() {
+    func makeSignInButtonlConstraint() {
         self.signInButton.translatesAutoresizingMaskIntoConstraints = false
-        self.signInButton.widthAnchor.constraint(equalTo: self.signInLabel.widthAnchor).isActive = true
-        self.signInButton.heightAnchor.constraint(equalTo: self.signInLabel.heightAnchor).isActive = true
-        self.signInButton.centerXAnchor.constraint(equalTo: self.signInLabel.centerXAnchor).isActive = true
-        self.signInButton.centerYAnchor.constraint(equalTo: self.signInLabel.centerYAnchor).isActive = true
+        self.signInButton.topAnchor.constraint(equalTo: self.textFiedlStackView.bottomAnchor, constant: 20).isActive = true
+        self.signInButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        self.signInButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        self.signInButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
     func makeBackButtionConstraint() {
@@ -131,9 +115,8 @@ class SignInView: UIView {
 
     func makeSubView() {
         addSubview(self.logoImageView)
-        addSubview(self.titleLabel)
+        addSubview(self.signInTitleLabel)
         addSubview(self.textFiedlStackView)
-        addSubview(self.signInLabel)
         addSubview(self.signInButton)
         addSubview(self.backButton)
     }
@@ -148,51 +131,54 @@ class SignInView: UIView {
         self.makeTitleLabelConstrinat()
         self.makeTextFieldStackConstraint()
         self.makeIdTextFieldConstraint()
-        self.makeSignInLabelConstraint()
+        self.makeSignInButtonlConstraint()
         self.makeBackButtionConstraint()
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor(named: "Pale")
-        self.makeSubView()
-        self.makeStackView()
-        self.makeSubViewContraint()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
-extension UITextField {
-    func makeTextField(placeHoldText: String) -> UITextField {
-        self.backgroundColor = UIColor(named: "lightPeach")
-        self.layer.cornerRadius = 10.0
-        self.textAlignment = .center
+    func makeTextField(target: UITextField, placeHoldText: String) {
+        target.backgroundColor = ColorList.lightPeach
+        target.layer.cornerRadius = 10.0
+        target.textAlignment = .center
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
-        self.attributedPlaceholder = NSAttributedString(string: placeHoldText, attributes: [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 20, weight: .regular), .paragraphStyle: paragraphStyle])
+        target.attributedPlaceholder = NSAttributedString(string: placeHoldText, attributes: [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 20, weight: .regular), .paragraphStyle: paragraphStyle])
 
         guard let category = TextFieldCategory(rawValue: placeHoldText) else {
-            return UITextField()
+            return
         }
 
         switch category {
         case .id:
-            self.isSecureTextEntry = false
+            target.isSecureTextEntry = false
         case .password:
-            self.isSecureTextEntry = true
+            target.isSecureTextEntry = true
         }
 
         let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
-        self.leftView = leftView
-        self.leftViewMode = .always
+        target.leftView = leftView
+        target.leftViewMode = .always
 
-        let newPosition = self.beginningOfDocument
-        self.selectedTextRange = self.textRange(from: newPosition, to: newPosition)
+        let newPosition = target.beginningOfDocument
+        target.selectedTextRange = target.textRange(from: newPosition, to: newPosition)
+    }
 
-        return self
+    func linkActionInSignInView() {
+        self.backButton.addTarget(SignInViewController(), action: #selector(SignInViewController.dismissViewController), for: .touchUpInside)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = ColorList.pale
+        self.makeSubView()
+        self.makeStackView()
+        self.makeSubViewContraint()
+        self.makeTextField(target: self.idTextField, placeHoldText: "ID")
+        self.makeTextField(target: self.passwordTextField, placeHoldText: "Password")
+        self.linkActionInSignInView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }

@@ -16,7 +16,7 @@ class ReplyTextTableViewCell: UITableViewCell {
         replyTextView.textContainerInset = UIEdgeInsets(top: 0, left: -replyTextView.textContainer.lineFragmentPadding, bottom: 0, right: replyTextView.textContainer.lineFragmentPadding)
         replyTextView.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0)
         replyTextView.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12)
-        replyTextView.textColor = UIColor(named: "greyishBrown")
+        replyTextView.textColor = ColorList.greyishBrown
         replyTextView.isEditable = false
         replyTextView.isScrollEnabled = false
 

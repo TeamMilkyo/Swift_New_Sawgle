@@ -71,7 +71,7 @@ class ReplyViewController: UIViewController {
     let titleLabel: UILabel = {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         titleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
-        titleLabel.tintColor = UIColor(named: "greyishBrown")
+        titleLabel.tintColor = ColorList.greyishBrown
         return titleLabel
     }()
 
@@ -95,7 +95,7 @@ class ReplyViewController: UIViewController {
     let starCountLabel: UILabel = {
         let starCountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         starCountLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 10)
-        starCountLabel.tintColor = UIColor(named: "greyishBrown")
+        starCountLabel.tintColor = ColorList.greyishBrown
         return starCountLabel
     }()
 
@@ -171,7 +171,7 @@ class ReplyViewController: UIViewController {
         let renderingImage = originImage.withRenderingMode(.alwaysTemplate)
         backButton.setImage(renderingImage, for: .normal)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.tintColor = UIColor(named: "PinkishGrey")
+        backButton.tintColor = ColorList.pinkishGrey
         backButton.addTarget(self, action: #selector(self.backButtonPressed(_:)), for: UIControl.Event.touchUpInside)
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         self.navigationItem.leftBarButtonItem = backBarButtonItem
@@ -313,12 +313,12 @@ extension ReplyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let replyTextTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.replyTextTableViewCellIdentifier, for: indexPath) as? ReplyTextTableViewCell else { return UITableViewCell() }
-            replyTextTableViewCell.backgroundColor = UIColor(named: "Pale")
+            replyTextTableViewCell.backgroundColor = ColorList.pale
             return replyTextTableViewCell
         } else {
             guard let replyPostTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.replyPostTableViewCellIdentifier, for: indexPath) as? ReplyPostTableViewCell else { return UITableViewCell() }
             replyPostTableViewCell.setPostTableViewCellData(replyData: self.replyViewPostData.reversed()[indexPath.row])
-            replyPostTableViewCell.backgroundColor = UIColor(named: "Pale")
+            replyPostTableViewCell.backgroundColor = ColorList.pale
 
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.cellHeartViewPressed(_:)))
             tapGestureRecognizer.numberOfTapsRequired = 1
@@ -337,12 +337,12 @@ extension ReplyViewController: UITableViewDelegate {
         switch replyTableViewSection {
         case .textTableViewSection:
             let replyTextHeaderView = ReplyTextHeaderView()
-            replyTextHeaderView.backgroundColor = UIColor(named: "Pale")
+            replyTextHeaderView.backgroundColor = ColorList.pale
             replyTextHeaderView.heartImageView.isUserInteractionEnabled = true
             replyTextHeaderView.heartImageView.addGestureRecognizer(self.heartButtonTapGestureRecognizer)
             return replyTextHeaderView
         case .postTableViewSection:
-            self.replyPostHeaderView.backgroundColor = UIColor(named: "Pale")
+            self.replyPostHeaderView.backgroundColor = ColorList.pale
             self.replyPostHeaderView.postHeaderButton.isUserInteractionEnabled = true
             self.replyPostHeaderView.postHeaderButton.addGestureRecognizer(self.replyViewPostButtonLongPressGestureRecognizer)
             return self.replyPostHeaderView

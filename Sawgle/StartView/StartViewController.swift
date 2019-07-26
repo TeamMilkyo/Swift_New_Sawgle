@@ -19,25 +19,11 @@ class StartViewController: UIViewController {
     @objc func presentSignUpViewController() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let signUpViewControlller = storyBoard.instantiateViewController(withIdentifier: "NewSignUpViewController")
-
         self.present(signUpViewControlller, animated: true)
     }
 
     /// 각각 버튼에 액션을 연결한다.
-    func linkActionInFirstView() {
-        guard let ownView = view as? StartView else {
-            return
-        }
-
-        ownView.goSignInViewButton.addTarget(self, action: #selector(self.presentSignInViewController), for: .touchUpInside)
-        ownView.goSignUpViewButton.addTarget(self, action: #selector(self.presentSignUpViewController), for: .touchUpInside)
-    }
-
     override func loadView() {
         view = StartView()
-    }
-
-    override func viewDidLoad() {
-        self.linkActionInFirstView()
     }
 }

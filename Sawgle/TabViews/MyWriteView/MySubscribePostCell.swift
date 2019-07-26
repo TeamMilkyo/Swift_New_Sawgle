@@ -35,13 +35,13 @@ class mySubscribePostCell: UICollectionViewCell {
 
     let lineView: UIView = {
         let lineView = UIView()
-        lineView.backgroundColor = UIColor(named: "Pale")
+        lineView.backgroundColor = ColorList.pale
         return lineView
     }()
 
     let goPostButton: UIButton = {
         let goPostButton = UIButton()
-        goPostButton.setTitleColor(UIColor(named: "PaleBrown"), for: .normal)
+        goPostButton.setTitleColor(ColorList.paleBrown, for: .normal)
         goPostButton.setTitle("게시글 보기", for: .normal)
         goPostButton.titleLabel?.font = UIFont(name: "S-CoreDream-5Medium", size: 13)
         return goPostButton
@@ -125,7 +125,7 @@ class mySubscribePostCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(named: "brownish")
+        backgroundColor = ColorList.brownish
         layer.cornerRadius = 15
         self.makeSubView()
         self.makeSubViewContraint()

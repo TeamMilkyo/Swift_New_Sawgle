@@ -15,7 +15,7 @@ class ReplyView: UIView {
 
     let replyTableView: UITableView = {
         let replyTableView = UITableView(frame: CGRect.zero, style: .grouped)
-        replyTableView.backgroundColor = UIColor(named: "PinkishGrey")
+        replyTableView.backgroundColor = ColorList.pinkishGrey
         replyTableView.separatorStyle = .none
         replyTableView.allowsSelection = false
         return replyTableView

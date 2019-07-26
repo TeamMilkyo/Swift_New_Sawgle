@@ -21,8 +21,8 @@ class CustomTabBarView: UIView {
         let customTabBar = UITabBar()
         customTabBar.layer.borderWidth = 0
         customTabBar.clipsToBounds = true
-        customTabBar.barTintColor = UIColor(named: "Pale")
-        customTabBar.tintColor = UIColor(named: "Pale")
+        customTabBar.barTintColor = ColorList.pale
+        customTabBar.tintColor = ColorList.pale
         return customTabBar
     }()
 
@@ -117,7 +117,7 @@ class CustomTabBarView: UIView {
     }
 
     func makeSubView() {
-        backgroundColor = UIColor(named: "Pale")
+        backgroundColor = ColorList.pale
         addSubview(self.contentView)
         addSubview(self.customTabBar)
         addSubview(self.backView)
@@ -141,7 +141,7 @@ class CustomTabBarView: UIView {
     }
 
     func makeCircleBackButtonImage() {
-        self.centerButtonBackImage.backgroundColor = UIColor(named: "Pale")
+        self.centerButtonBackImage.backgroundColor = ColorList.pale
         self.centerButtonBackImage.layer.cornerRadius = self.buttonBackImageSize / 2
     }
 
