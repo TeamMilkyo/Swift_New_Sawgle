@@ -35,14 +35,6 @@ class ReplyView: UIView {
         ])
     }
 
-    func makeSubViewConstraint() {
-        self.makeReplyTableViewConstraint()
-    }
-
-    func makeSubView() {
-        self.addSubview(self.replyTableView)
-    }
-
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -53,5 +45,15 @@ class ReplyView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyView: UIViewItemProtocol {
+    func makeSubView() {
+        self.addSubview(self.replyTableView)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeReplyTableViewConstraint()
     }
 }

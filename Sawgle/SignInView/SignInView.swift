@@ -21,19 +21,19 @@ class SignInView: UIView {
     }()
 
     let signInTitleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.font = UIFont().mainFont(displaySize: 60)
-        titleLabel.text = "Sawgle"
-        titleLabel.textColor = .white
-        return titleLabel
+        let signInTitleLabel = UILabel()
+        signInTitleLabel.font = UIFont.mainFont(displaySize: 60)
+        signInTitleLabel.text = "Sawgle"
+        signInTitleLabel.textColor = .white
+        return signInTitleLabel
     }()
 
-    let textFiedlStackView: UIStackView = {
-        let textFiedlStackView = UIStackView()
-        textFiedlStackView.axis = NSLayoutConstraint.Axis.vertical
-        textFiedlStackView.distribution = UIStackView.Distribution.fillEqually
-        textFiedlStackView.spacing = 10.0
-        return textFiedlStackView
+    let textFieldStackView: UIStackView = {
+        let textFieldStackView = UIStackView()
+        textFieldStackView.axis = NSLayoutConstraint.Axis.vertical
+        textFieldStackView.distribution = UIStackView.Distribution.fillEqually
+        textFieldStackView.spacing = 10.0
+        return textFieldStackView
     }()
 
     let idTextField: UITextField = {
@@ -79,17 +79,17 @@ class SignInView: UIView {
     }
 
     func makeTextFieldStackConstraint() {
-        self.textFiedlStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.textFiedlStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        NSLayoutConstraint(item: self.textFiedlStackView,
+        self.textFieldStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.textFieldStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        NSLayoutConstraint(item: self.textFieldStackView,
                            attribute: .centerY,
                            relatedBy: .equal,
                            toItem: self,
                            attribute: .centerY,
                            multiplier: 1.2,
                            constant: 0.0).isActive = true
-        self.textFiedlStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        self.textFiedlStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        self.textFieldStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        self.textFieldStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
     }
 
     func makeIdTextFieldConstraint() {
@@ -99,7 +99,7 @@ class SignInView: UIView {
 
     func makeSignInButtonlConstraint() {
         self.signInButton.translatesAutoresizingMaskIntoConstraints = false
-        self.signInButton.topAnchor.constraint(equalTo: self.textFiedlStackView.bottomAnchor, constant: 20).isActive = true
+        self.signInButton.topAnchor.constraint(equalTo: self.textFieldStackView.bottomAnchor, constant: 20).isActive = true
         self.signInButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         self.signInButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         self.signInButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
@@ -111,28 +111,6 @@ class SignInView: UIView {
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
         ])
-    }
-
-    func makeSubView() {
-        addSubview(self.logoImageView)
-        addSubview(self.signInTitleLabel)
-        addSubview(self.textFiedlStackView)
-        addSubview(self.signInButton)
-        addSubview(self.backButton)
-    }
-
-    func makeStackView() {
-        self.textFiedlStackView.addArrangedSubview(self.idTextField)
-        self.textFiedlStackView.addArrangedSubview(self.passwordTextField)
-    }
-
-    func makeSubViewContraint() {
-        self.makeLogoImageViewConstraint()
-        self.makeTitleLabelConstrinat()
-        self.makeTextFieldStackConstraint()
-        self.makeIdTextFieldConstraint()
-        self.makeSignInButtonlConstraint()
-        self.makeBackButtionConstraint()
     }
 
     func makeTextField(target: UITextField, placeHoldText: String) {
@@ -163,22 +141,50 @@ class SignInView: UIView {
         target.selectedTextRange = target.textRange(from: newPosition, to: newPosition)
     }
 
-    func linkActionInSignInView() {
-        self.backButton.addTarget(SignInViewController(), action: #selector(SignInViewController.dismissViewController), for: .touchUpInside)
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = ColorList.pale
         self.makeSubView()
         self.makeStackView()
-        self.makeSubViewContraint()
+        self.makeSubViewConstraint()
         self.makeTextField(target: self.idTextField, placeHoldText: "ID")
         self.makeTextField(target: self.passwordTextField, placeHoldText: "Password")
-        self.linkActionInSignInView()
+        self.linkAction()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension SignInView: UIViewItemProtocol {
+    func makeSubView() {
+        addSubview(self.logoImageView)
+        addSubview(self.signInTitleLabel)
+        addSubview(self.textFieldStackView)
+        addSubview(self.signInButton)
+        addSubview(self.backButton)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeLogoImageViewConstraint()
+        self.makeTitleLabelConstrinat()
+        self.makeTextFieldStackConstraint()
+        self.makeIdTextFieldConstraint()
+        self.makeSignInButtonlConstraint()
+        self.makeBackButtionConstraint()
+    }
+}
+
+extension SignInView: ActionProtocol {
+    func linkAction() {
+        self.backButton.addTarget(SignInViewController(), action: #selector(SignInViewController.dismissViewController), for: .touchUpInside)
+    }
+}
+
+extension SignInView: StackViewItemProtocol {
+    func makeStackView() {
+        self.textFieldStackView.addArrangedSubview(self.idTextField)
+        self.textFieldStackView.addArrangedSubview(self.passwordTextField)
     }
 }

@@ -23,7 +23,7 @@ class StartView: UIView {
 
     let startTitleLabel: UILabel = {
         let startTitleLabel = UILabel()
-        startTitleLabel.font = UIFont().mainFont(displaySize: 80)
+        startTitleLabel.font = UIFont.mainFont(displaySize: 20)
         startTitleLabel.text = "Sawgle"
         startTitleLabel.textColor = .white
         return startTitleLabel
@@ -108,19 +108,21 @@ class StartView: UIView {
         self.presentSignInViewButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.066).isActive = true
     }
 
-    func makeSubViewConstraint() {
-        self.makePanHeartImageViewConstraint()
-        self.makePanImageViewConstraint()
-        self.makeHomeTitleLabelConstrinat()
-        self.makeTwoButtonStackConstraint()
-        self.makeSignInLabelConstraint()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = ColorList.pale
+        self.makeSubView()
+        self.makeStackView()
+        self.makeSubViewConstraint()
+        self.linkAction()
     }
 
-    func makeStackView() {
-        self.twoButtonStackView.addArrangedSubview(self.presentSignInViewButton)
-        self.twoButtonStackView.addArrangedSubview(self.presentSignUpViewButton)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
+}
 
+extension StartView: UIViewItemProtocol {
     func makeSubView() {
         addSubview(self.panHeartImageView)
         addSubview(self.panImageView)
@@ -128,21 +130,25 @@ class StartView: UIView {
         addSubview(self.twoButtonStackView)
     }
 
-    func linkActionInStartView() {
+    func makeSubViewConstraint() {
+        self.makePanHeartImageViewConstraint()
+        self.makePanImageViewConstraint()
+        self.makeHomeTitleLabelConstrinat()
+        self.makeTwoButtonStackConstraint()
+        self.makeSignInLabelConstraint()
+    }
+}
+
+extension StartView: ActionProtocol {
+    func linkAction() {
         self.presentSignInViewButton.addTarget(StartViewController(), action: #selector(StartViewController.presentSignInViewController), for: .touchUpInside)
         self.presentSignUpViewButton.addTarget(StartViewController(), action: #selector(StartViewController.presentSignUpViewController), for: .touchUpInside)
     }
+}
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = ColorList.pale
-        self.makeSubView()
-        self.makeStackView()
-        self.makeSubViewConstraint()
-        self.linkActionInStartView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+extension StartView: StackViewItemProtocol {
+    func makeStackView() {
+        self.twoButtonStackView.addArrangedSubview(self.presentSignInViewButton)
+        self.twoButtonStackView.addArrangedSubview(self.presentSignUpViewButton)
     }
 }

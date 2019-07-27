@@ -13,11 +13,10 @@ extension UIButton {
         self.backgroundColor = backgrondColor
         self.clipsToBounds = true
         self.layer.cornerRadius = 10.0
-        self.titleLabel?.font = UIFont().mainFont(displaySize: 24)
+        self.titleLabel?.font = UIFont.mainFont(displaySize: 24)
         self.setTitle(title, for: .normal)
         self.titleLabel?.textAlignment = .center
         self.setTitleColor(titleColor, for: .normal)
-
         return self
     }
 }

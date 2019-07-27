@@ -14,12 +14,12 @@ class MyWriteView: UIView {
     }()
 
     let nameLabel: UILabel = {
-        let nameLael = UILabel()
-        nameLael.font = UIFont().mainFont(displaySize: 25)
-        nameLael.textColor = ColorList.brownishGray
-        nameLael.sizeToFit()
-        nameLael.baselineAdjustment = .alignCenters
-        return nameLael
+        let nameLabel = UILabel()
+        nameLabel.font = UIFont.mainFont(displaySize: 25)
+        nameLabel.textColor = ColorList.brownishGray
+        nameLabel.sizeToFit()
+        nameLabel.baselineAdjustment = .alignCenters
+        return nameLabel
     }()
 
     let nameImageView: UIImageView = {
@@ -36,13 +36,13 @@ class MyWriteView: UIView {
         return rightStackView
     }()
 
-    let rightStackTitle: UILabel = {
-        let rightStackTitle = UILabel()
-        rightStackTitle.font = UIFont(name: "S-CoreDream-3Light", size: 10)
-        rightStackTitle.textColor = ColorList.paleBrown
-        rightStackTitle.text = "마지막 쓴 글"
-        rightStackTitle.textAlignment = .right
-        return rightStackTitle
+    let rightStackTitleLabel: UILabel = {
+        let rightStackTitleLabel = UILabel()
+        rightStackTitleLabel.font = UIFont(name: "S-CoreDream-3Light", size: 10)
+        rightStackTitleLabel.textColor = ColorList.paleBrown
+        rightStackTitleLabel.text = "마지막 쓴 글"
+        rightStackTitleLabel.textAlignment = .right
+        return rightStackTitleLabel
     }()
 
     let dateLabel: UILabel = {
@@ -86,10 +86,10 @@ class MyWriteView: UIView {
         return commentTitleLabel
     }()
 
-    let commentTitleLine: UIView = {
-        let commentTitleLine = UIView()
-        commentTitleLine.backgroundColor = .white
-        return commentTitleLine
+    let commentTitleLineView: UIView = {
+        let commentTitleLineView = UIView()
+        commentTitleLineView.backgroundColor = .white
+        return commentTitleLineView
     }()
 
     let mySubscribePostView: UICollectionView = {
@@ -150,7 +150,7 @@ class MyWriteView: UIView {
         ])
     }
 
-    func addCommentTitleLabelConstraint() {
+    func makeCommentTitleLabelConstraint() {
         self.commentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             commentTitleLabel.topAnchor.constraint(equalTo: myCommentSectionView.bottomAnchor, constant: 16),
@@ -158,13 +158,13 @@ class MyWriteView: UIView {
         ])
     }
 
-    func addCommentTitleLineConstraint() {
-        self.commentTitleLine.translatesAutoresizingMaskIntoConstraints = false
+    func makeCommentTitleLineConstraint() {
+        self.commentTitleLineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            commentTitleLine.topAnchor.constraint(equalTo: commentTitleLabel.bottomAnchor, constant: 5),
-            commentTitleLine.heightAnchor.constraint(equalToConstant: 2),
-            commentTitleLine.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            commentTitleLine.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            commentTitleLineView.topAnchor.constraint(equalTo: commentTitleLabel.bottomAnchor, constant: 5),
+            commentTitleLineView.heightAnchor.constraint(equalToConstant: 2),
+            commentTitleLineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            commentTitleLineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
     }
 
@@ -188,7 +188,7 @@ class MyWriteView: UIView {
         ])
     }
 
-    func goBoardButtonConstraint() {
+    func makeGoBoardButtonConstraint() {
         self.goBoardButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             goBoardButton.trailingAnchor.constraint(equalTo: myWriteSectionView.trailingAnchor, constant: -16),
@@ -196,6 +196,20 @@ class MyWriteView: UIView {
         ])
     }
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = ColorList.pale
+        self.makeSubView()
+        self.makeSubViewConstraint()
+        self.makeStackView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+extension MyWriteView: UIViewItemProtocol {
     func makeSubView() {
         addSubview(self.nameLabel)
         addSubview(self.nameImageView)
@@ -203,7 +217,7 @@ class MyWriteView: UIView {
         addSubview(self.myWriteSectionView)
         addSubview(self.myCommentSectionView)
         addSubview(self.commentTitleLabel)
-        addSubview(self.commentTitleLine)
+        addSubview(self.commentTitleLineView)
         addSubview(self.myLikePostSectionView)
         addSubview(self.mySubscribePostView)
         self.myWriteSectionView.addSubview(self.goBoardButton)
@@ -215,27 +229,17 @@ class MyWriteView: UIView {
         self.makeRightStackViewConstraint()
         self.makeMyWriteViewConstraint()
         self.makeMyCommentViewConstraint()
-        self.addCommentTitleLabelConstraint()
-        self.addCommentTitleLineConstraint()
+        self.makeCommentTitleLabelConstraint()
+        self.makeCommentTitleLineConstraint()
         self.makeMyLikePostViewConstraint()
         self.makeMySubscribePostViewConstraint()
-        self.goBoardButtonConstraint()
+        self.makeGoBoardButtonConstraint()
     }
+}
 
-    func makeStackItem() {
-        self.rightStackView.addArrangedSubview(self.rightStackTitle)
+extension MyWriteView: StackViewItemProtocol {
+    func makeStackView() {
+        self.rightStackView.addArrangedSubview(self.rightStackTitleLabel)
         self.rightStackView.addArrangedSubview(self.dateLabel)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
-        self.makeSubView()
-        self.makeSubViewConstraint()
-        self.makeStackItem()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }

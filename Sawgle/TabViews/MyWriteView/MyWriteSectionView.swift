@@ -21,7 +21,7 @@ class MyWriteSectionView: UIView {
     let countLabel: UILabel = {
         let countLabel = UILabel()
         countLabel.textColor = ColorList.newBrown
-        countLabel.font = UIFont().mainFont(displaySize: 10)
+        countLabel.font = UIFont.mainFont(displaySize: 10)
         return countLabel
     }()
 
@@ -73,6 +73,20 @@ class MyWriteSectionView: UIView {
         ])
     }
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        layer.cornerRadius = 15
+        self.makeSubView()
+        self.makeSubViewConstraint()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+extension MyWriteSectionView: UIViewItemProtocol {
     func makeSubView() {
         addSubview(self.sectionTitleLabel)
         addSubview(self.countLabel)
@@ -85,17 +99,5 @@ class MyWriteSectionView: UIView {
         self.makeCountLabelConstraint()
         self.makeUnitLabelConstraint()
         self.makeEnterImageViewConstraint()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
-        layer.cornerRadius = 15
-        self.makeSubView()
-        self.makeSubViewConstraint()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }

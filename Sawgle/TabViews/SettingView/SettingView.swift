@@ -12,7 +12,7 @@ class SettingView: UIView {
     let settingTableView: UITableView = {
         let settingTableView = UITableView(frame: CGRect.zero, style: .grouped)
         settingTableView.tableFooterView = UIView()
-        settingTableView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
+        settingTableView.backgroundColor = ColorList.pale
         settingTableView.separatorStyle = .none
         return settingTableView
     }()
@@ -29,7 +29,7 @@ class SettingView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
+        backgroundColor = ColorList.pale
         addSubview(self.settingTableView)
         self.addSettingTableViewConstraint()
     }

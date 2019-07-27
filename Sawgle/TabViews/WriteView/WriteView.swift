@@ -49,7 +49,7 @@ class WriteView: UIView {
     }()
 
     let logoImageView: UIImageView = {
-        UIView().makeLogoView()
+        UIImageView()
     }()
 
     func makeMenuViewConstraint() {
@@ -88,6 +88,40 @@ class WriteView: UIView {
         ])
     }
 
+    func makeLogoView(target: UIImageView) {
+        let logo = UIImage(named: "logo")
+        target.image = logo
+        target.translatesAutoresizingMaskIntoConstraints = false
+        target.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        target.widthAnchor.constraint(equalTo: self.logoImageView.heightAnchor).isActive = true
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
+
+        self.makeSubView()
+        self.makeLogoView(target: self.logoImageView)
+        self.makeSubViewConstraint()
+        self.linkAction()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+extension UIButton {
+    func makeSideButton(title: String) -> UIButton {
+        let leftButton = UIButton()
+        leftButton.setTitle(title, for: .normal)
+        leftButton.titleLabel?.font = UIFont(name: "S-CoreDream-4Regular", size: 17)
+        return leftButton
+    }
+}
+
+extension WriteView: UIViewItemProtocol {
     func makeSubView() {
         addSubview(self.menuView)
         addSubview(self.leftButton)
@@ -107,26 +141,10 @@ class WriteView: UIView {
 
         self.makeBottomViewConstraint()
     }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
-
-        self.makeSubView()
-        self.makeSubViewConstraint()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 }
 
-extension UIButton {
-    func makeSideButton(title: String) -> UIButton {
-        let leftButton = UIButton()
-        leftButton.setTitle(title, for: .normal)
-        leftButton.titleLabel?.font = UIFont(name: "S-CoreDream-4Regular", size: 17)
-        return leftButton
+extension WriteView: ActionProtocol {
+    func linkAction() {
+        self.leftButton.addTarget(WriteViewController(), action: #selector(WriteViewController.cancelView), for: .touchUpInside)
     }
 }

@@ -19,14 +19,9 @@ struct SettingTitle {
 
 class SettingViewController: UIViewController {
     var titleList = [SettingTitle]()
-
-    lazy var ownView: SettingView = {
-        guard let convertView = view as? SettingView else {
-            return SettingView()
-        }
-
-        return convertView
-    }()
+    var settingOwnView: SettingView {
+        return self.view as! SettingView
+    }
 
     func makeTitleData() {
         let firstSectionTitle = SettingTitle(inputTitle: "알림장", "내 글 댓글", "즐겨찾기 새글")
@@ -34,15 +29,10 @@ class SettingViewController: UIViewController {
         let thirdSectionTitle = SettingTitle(inputTitle: "버전 정보", "오픈 소스")
         let fourthSectionTitle = SettingTitle(inputTitle: "공지사항", "피드백")
 
-        titleList.append(firstSectionTitle)
+        self.titleList.append(firstSectionTitle)
         self.titleList.append(secondSectionTitle)
         self.titleList.append(thirdSectionTitle)
         self.titleList.append(fourthSectionTitle)
-    }
-
-    func registeCell() {
-        self.ownView.settingTableView.register(SettingTableCell.self, forCellReuseIdentifier: "SettingTableCell")
-        self.ownView.settingTableView.register(SettingTableCellWithSwitch.self, forCellReuseIdentifier: "SettingTableCellWithSwitch")
     }
 
     override func loadView() {
@@ -50,11 +40,11 @@ class SettingViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.ownView.settingTableView.delegate = self
-        self.ownView.settingTableView.dataSource = self
+        self.settingOwnView.settingTableView.delegate = self
+        self.settingOwnView.settingTableView.dataSource = self
         self.makeTitleData()
         self.navigationItem.title = "설정"
-        self.registeCell()
+        self.registerCell()
     }
 }
 
@@ -76,19 +66,19 @@ extension SettingViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 && indexPath.row == 1 || indexPath.row == 2 {
-            guard let settingSwitchCell = tableView.dequeueReusableCell(withIdentifier: "SettingTableCellWithSwitch") as? SettingTableCellWithSwitch else {
+            guard let settingSwitchCell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell") as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
 
-            settingSwitchCell.titleLabel.text = self.titleList[indexPath.section].title[indexPath.row]
+            settingSwitchCell.settingTitleLabel.text = self.titleList[indexPath.section].title[indexPath.row]
 
             return settingSwitchCell
         }
 
-        guard let settingCell = tableView.dequeueReusableCell(withIdentifier: "SettingTableCell") as? SettingTableCell else {
+        guard let settingCell = tableView.dequeueReusableCell(withIdentifier: "SettingTableCell") as? SettingTableViewCell else {
             return UITableViewCell()
         }
-        settingCell.titleLabel.text = self.titleList[indexPath.section].title[indexPath.row]
+        settingCell.settingTitleLabel.text = self.titleList[indexPath.section].title[indexPath.row]
 
         return settingCell
     }
@@ -100,30 +90,9 @@ extension SettingViewController: UITableViewDelegate {
     }
 }
 
-class LineView: UIView {
-    let lineView: UIView = {
-        let liveView = UIView()
-        liveView.backgroundColor = .white
-        return liveView
-    }()
-
-    func makeLineViewConstraint() {
-        self.lineView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            lineView.widthAnchor.constraint(equalTo: widthAnchor),
-            lineView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 2),
-            lineView.topAnchor.constraint(equalTo: topAnchor),
-        ])
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(self.lineView)
-        self.makeLineViewConstraint()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+extension SettingViewController: CellProtocol {
+    func registerCell() {
+        self.settingOwnView.settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: "SettingTableCell")
+        self.settingOwnView.settingTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
     }
 }

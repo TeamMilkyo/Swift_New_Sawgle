@@ -26,12 +26,11 @@ class ReplyViewController: UIViewController {
     let replyTextTableViewCellIdentifier = "replyTextTableViewCell"
     let replyPostTableViewCellIdentifier = "replyPostTableViewCell"
     var isKeyboard = false
-    var replyViewPostData: [ReplyData] = []
+    var replyViewPostData = [ReplyData]()
 
-    lazy var replyView: ReplyView = {
-        guard let replyView = view as? ReplyView else { return ReplyView() }
-        return replyView
-    }()
+    var replyOwnView: ReplyView {
+        return self.view as! ReplyView
+    }
 
     let replyPostHeaderView: ReplyPostHeaderView = {
         let replyPostHeaderView = ReplyPostHeaderView()
@@ -154,7 +153,7 @@ class ReplyViewController: UIViewController {
             self.replyPostHeaderView.setPostReplyCount(count: self.replyViewPostData.count)
 
             DispatchQueue.main.async {
-                self.replyView.replyTableView.reloadData()
+                self.replyOwnView.replyTableView.reloadData()
             }
 
         } else {
@@ -178,11 +177,11 @@ class ReplyViewController: UIViewController {
     }
 
     func setReplyTableView() {
-        self.replyView.replyTableView.dataSource = self
-        self.replyView.replyTableView.delegate = self
-        self.replyView.replyTableView.estimatedRowHeight = 50
-        self.replyView.replyTableView.rowHeight = UITableView.automaticDimension
-        self.replyView.replyTableView.addGestureRecognizer(self.replyTableViewTapGestureRecognizer)
+        self.replyOwnView.replyTableView.dataSource = self
+        self.replyOwnView.replyTableView.delegate = self
+        self.replyOwnView.replyTableView.estimatedRowHeight = 50
+        self.replyOwnView.replyTableView.rowHeight = UITableView.automaticDimension
+        self.replyOwnView.replyTableView.addGestureRecognizer(self.replyTableViewTapGestureRecognizer)
     }
 
     func setNavigationItemTitleStackView(titleName: String) {
@@ -202,8 +201,8 @@ class ReplyViewController: UIViewController {
     }
 
     func registerTableViewCell() {
-        self.replyView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
-        self.replyView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
+        self.replyOwnView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
+        self.replyOwnView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
     }
 
     // MARK: setConstraints

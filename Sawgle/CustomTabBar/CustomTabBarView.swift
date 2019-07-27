@@ -13,8 +13,7 @@ class CustomTabBarView: UIView {
     var buttonBackImageSize: CGFloat = 0
 
     let contentView: UIView = {
-        let contentView = UIView()
-        return contentView
+        UIView()
     }()
 
     let customTabBar: UITabBar = {
@@ -26,12 +25,12 @@ class CustomTabBarView: UIView {
         return customTabBar
     }()
 
-    let leftStack: TwoButtonStack = {
-        TwoButtonStack()
+    let leftStackView: TwoButtonStackView = {
+        TwoButtonStackView()
     }()
 
-    let rightStack: TwoButtonStack = {
-        TwoButtonStack()
+    let rightStackView: TwoButtonStackView = {
+        TwoButtonStackView()
     }()
 
     let centerButtonBackImage: UIImageView = {
@@ -42,10 +41,10 @@ class CustomTabBarView: UIView {
         UIButton()
     }()
 
-    let backView: UIView = {
-        let backView = UIView()
-        backView.backgroundColor = .white
-        return backView
+    let customTabBarHideView: UIView = {
+        let customTabBarHideView = UIView()
+        customTabBarHideView.backgroundColor = .white
+        return customTabBarHideView
     }()
 
     func makeContentViewConstraint() {
@@ -76,12 +75,12 @@ class CustomTabBarView: UIView {
         ])
     }
 
-    func makeLeftStackConstraint() {
-        self.leftStack.leadingAnchor.constraint(equalTo: self.customTabBar.leadingAnchor, constant: 16).isActive = true
+    func makeLeftStackViewConstraint() {
+        self.leftStackView.leadingAnchor.constraint(equalTo: self.customTabBar.leadingAnchor, constant: 16).isActive = true
     }
 
-    func makeRightStackConstraint() {
-        self.rightStack.trailingAnchor.constraint(equalTo: self.customTabBar.trailingAnchor, constant: -16).isActive = true
+    func makeRightStackViewConstraint() {
+        self.rightStackView.trailingAnchor.constraint(equalTo: self.customTabBar.trailingAnchor, constant: -16).isActive = true
     }
 
     func makeCenterButtonBackImageConstraint() {
@@ -106,38 +105,14 @@ class CustomTabBarView: UIView {
         ])
     }
 
-    func makeBackViewConstraint() {
-        self.backView.translatesAutoresizingMaskIntoConstraints = false
+    func makeCustomTabBarHideViewConstraint() {
+        self.customTabBarHideView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backView.centerXAnchor.constraint(equalTo: customTabBar.centerXAnchor),
-            backView.centerYAnchor.constraint(equalTo: customTabBar.centerYAnchor),
-            backView.widthAnchor.constraint(equalTo: customTabBar.widthAnchor),
-            backView.heightAnchor.constraint(equalTo: customTabBar.heightAnchor),
+            customTabBarHideView.centerXAnchor.constraint(equalTo: customTabBar.centerXAnchor),
+            customTabBarHideView.centerYAnchor.constraint(equalTo: customTabBar.centerYAnchor),
+            customTabBarHideView.widthAnchor.constraint(equalTo: customTabBar.widthAnchor),
+            customTabBarHideView.heightAnchor.constraint(equalTo: customTabBar.heightAnchor),
         ])
-    }
-
-    func makeSubView() {
-        backgroundColor = ColorList.pale
-        addSubview(self.contentView)
-        addSubview(self.customTabBar)
-        addSubview(self.backView)
-
-        self.backView.addSubview(self.leftStack)
-        self.backView.addSubview(self.rightStack)
-        self.backView.addSubview(self.centerButtonBackImage)
-        self.backView.addSubview(self.centerButton)
-    }
-
-    func makeSubViewContraint() {
-        self.makeCustomTabBarConstraint()
-        self.makeStackConstraint(targetStack: self.leftStack)
-        self.makeLeftStackConstraint()
-        self.makeStackConstraint(targetStack: self.rightStack)
-        self.makeRightStackConstraint()
-        self.makeCenterButtonBackImageConstraint()
-        self.makeCenterButtonConstraint()
-        self.makeContentViewConstraint()
-        self.makeBackViewConstraint()
     }
 
     func makeCircleBackButtonImage() {
@@ -151,26 +126,26 @@ class CustomTabBarView: UIView {
     }
 
     /// 버튼의 기본적인 상태를 설정한다.
-    func insertDefaultOptionAtButton() {
-        if let firtButton = leftStack.firstItem as? ButtonStack {
+    func makeDefaultButton() {
+        if let firtButton = leftStackView.leftItemView as? ButtonLabelStackView {
             firtButton.button.setImage(UIImage(named: "Home"), for: .normal)
             firtButton.button.setImage(UIImage(named: "SelectedHome"), for: .selected)
             firtButton.button.setImage(UIImage(named: "SelectedHome"), for: [.selected, .highlighted])
             firtButton.buttonTitle.text = "써글홈"
         }
-        if let secondButton = leftStack.secondItem as? ButtonStack {
+        if let secondButton = leftStackView.rightItemView as? ButtonLabelStackView {
             secondButton.button.setImage(UIImage(named: "Bookmark"), for: .normal)
             secondButton.button.setImage(UIImage(named: "SelectedBookMark"), for: .selected)
             secondButton.button.setImage(UIImage(named: "SelectedBookMark"), for: [.selected, .highlighted])
             secondButton.buttonTitle.text = "즐겨찾기"
         }
-        if let thirdButton = rightStack.firstItem as? ButtonStack {
+        if let thirdButton = rightStackView.leftItemView as? ButtonLabelStackView {
             thirdButton.button.setImage(UIImage(named: "MyWrite"), for: .normal)
             thirdButton.button.setImage(UIImage(named: "SelectedMyWrite"), for: .selected)
             thirdButton.button.setImage(UIImage(named: "SelectedMyWrite"), for: [.selected, .highlighted])
             thirdButton.buttonTitle.text = "마이글"
         }
-        if let fourButton = rightStack.secondItem as? ButtonStack {
+        if let fourButton = rightStackView.rightItemView as? ButtonLabelStackView {
             fourButton.button.setImage(UIImage(named: "Setting"), for: .normal)
             fourButton.button.setImage(UIImage(named: "SelectedSetting"), for: .selected)
             fourButton.button.setImage(UIImage(named: "SelectedSetting"), for: [.selected, .highlighted])
@@ -178,20 +153,21 @@ class CustomTabBarView: UIView {
         }
     }
 
-    func makeBackViewLayer() {
-        self.backView.layer.cornerRadius = 30
-        self.backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    func makeCustomTabBarHideViewLayer() {
+        self.customTabBarHideView.layer.cornerRadius = 30
+        self.customTabBarHideView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.buttonBackImageSize = self.buttonSize + 10
         self.makeSubView()
-        self.makeSubViewContraint()
-        self.insertDefaultOptionAtButton()
+        self.makeSubViewConstraint()
+        self.makeDefaultButton()
         self.makeCircleBackButtonImage()
         self.makeCircleBackButton()
-        self.makeBackViewLayer()
+        self.makeCustomTabBarHideViewLayer()
+        self.linkAction()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -199,85 +175,51 @@ class CustomTabBarView: UIView {
     }
 }
 
-class TwoButtonStack: UIView {
-    let twoButtonStackView: UIStackView = {
-        let twoButtonStackView = UIStackView()
-        twoButtonStackView.axis = .horizontal
-        twoButtonStackView.distribution = .fillEqually
-        return twoButtonStackView
-    }()
+extension CustomTabBarView: UIViewItemProtocol {
+    func makeSubView() {
+        backgroundColor = ColorList.pale
+        addSubview(self.contentView)
+        addSubview(self.customTabBar)
+        addSubview(self.customTabBarHideView)
 
-    let firstItem: UIView = {
-        ButtonStack()
-    }()
-
-    let secondItem: UIView = {
-        ButtonStack()
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        addSubview(self.twoButtonStackView)
-
-        self.twoButtonStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            twoButtonStackView.widthAnchor.constraint(equalTo: widthAnchor),
-            twoButtonStackView.heightAnchor.constraint(equalTo: heightAnchor),
-            twoButtonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            twoButtonStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-
-        self.twoButtonStackView.addArrangedSubview(self.firstItem)
-
-        self.twoButtonStackView.addArrangedSubview(self.secondItem)
+        self.customTabBarHideView.addSubview(self.leftStackView)
+        self.customTabBarHideView.addSubview(self.rightStackView)
+        self.customTabBarHideView.addSubview(self.centerButtonBackImage)
+        self.customTabBarHideView.addSubview(self.centerButton)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func makeSubViewConstraint() {
+        self.makeCustomTabBarConstraint()
+        self.makeStackConstraint(targetStack: self.leftStackView)
+        self.makeLeftStackViewConstraint()
+        self.makeStackConstraint(targetStack: self.rightStackView)
+        self.makeRightStackViewConstraint()
+        self.makeCenterButtonBackImageConstraint()
+        self.makeCenterButtonConstraint()
+        self.makeContentViewConstraint()
+        self.makeCustomTabBarHideViewConstraint()
     }
 }
 
-class ButtonStack: UIView {
-    let buttonStackView: UIStackView = {
-        let buttonStackView = UIStackView()
-        buttonStackView.axis = .vertical
-        buttonStackView.distribution = .fill
-        return buttonStackView
-    }()
+extension CustomTabBarView: ActionProtocol {
+    func linkAction() {
+        if let firstStackView = leftStackView.leftItemView as? ButtonLabelStackView {
+            firstStackView.button.addTarget(CustomTabBarController(), action: #selector(CustomTabBarController.linkAction), for: .touchUpInside)
+            firstStackView.button.tag = 1
+        }
+        if let secondStackView = leftStackView.rightItemView as? ButtonLabelStackView {
+            secondStackView.button.addTarget(CustomTabBarController(), action: #selector(CustomTabBarController.linkAction), for: .touchUpInside)
+            secondStackView.button.tag = 2
+        }
+        if let thirdStackView = rightStackView.leftItemView as? ButtonLabelStackView {
+            thirdStackView.button.addTarget(CustomTabBarController(), action: #selector(CustomTabBarController.linkAction), for: .touchUpInside)
+            thirdStackView.button.tag = 3
+        }
+        if let fourthStackView = rightStackView.rightItemView as? ButtonLabelStackView {
+            fourthStackView.button.addTarget(CustomTabBarController(), action: #selector(CustomTabBarController.linkAction), for: .touchUpInside)
+            fourthStackView.button.tag = 4
+        }
 
-    let button: UIButton = {
-        UIButton()
-    }()
-
-    let buttonTitle: UILabel = {
-        let firstButtonLabel = UILabel()
-        firstButtonLabel.font = UIFont().mainFont(displaySize: 15)
-        firstButtonLabel.textColor = #colorLiteral(red: 0.4939999878, green: 0.4199999869, blue: 0.3529999852, alpha: 1)
-        firstButtonLabel.contentMode = .center
-        firstButtonLabel.textAlignment = .center
-        return firstButtonLabel
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        addSubview(self.buttonStackView)
-
-        self.buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonStackView.widthAnchor.constraint(equalTo: widthAnchor),
-            buttonStackView.heightAnchor.constraint(equalTo: heightAnchor),
-            buttonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            buttonStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-        self.button.translatesAutoresizingMaskIntoConstraints = false
-        self.button.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.buttonStackView.addArrangedSubview(self.button)
-        self.buttonStackView.addArrangedSubview(self.buttonTitle)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        self.centerButton.addTarget(CustomTabBarController(), action: #selector(CustomTabBarController.presentWriteView), for: .touchUpInside)
     }
 }
