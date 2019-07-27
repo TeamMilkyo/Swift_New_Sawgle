@@ -48,7 +48,10 @@
 		B4F8049D22ECC58A0067D720 /* ReplyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8049C22ECC58A0067D720 /* ReplyPostTableViewCell.swift */; };
 		B4F8049F22ECC5BF0067D720 /* CellHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8049E22ECC5BF0067D720 /* CellHeartView.swift */; };
 		B4F804A122ECC5DD0067D720 /* ReplyTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F804A022ECC5DD0067D720 /* ReplyTextHeaderView.swift */; };
-		B4FBBE3B22EBF1A9002B9E62 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBBE3A22EBF1A9002B9E62 /* ViewProtocol.swift */; };
+		B4F804A522ECCB8B0067D720 /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F804A422ECCB8B0067D720 /* ActionProtocol.swift */; };
+		B4F804A722ECCBA80067D720 /* StackViewItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F804A622ECCBA80067D720 /* StackViewItemProtocol.swift */; };
+		B4F804A922ECCBBE0067D720 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F804A822ECCBBE0067D720 /* CellProtocol.swift */; };
+		B4FBBE3B22EBF1A9002B9E62 /* UIViewItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FBBE3A22EBF1A9002B9E62 /* UIViewItemProtocol.swift */; };
 		B4FDCBBE22EB6CBC001F01D3 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */; };
 		B4FDCBC022EB7126001F01D3 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +100,10 @@
 		B4F8049C22ECC58A0067D720 /* ReplyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyPostTableViewCell.swift; sourceTree = "<group>"; };
 		B4F8049E22ECC5BF0067D720 /* CellHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeartView.swift; sourceTree = "<group>"; };
 		B4F804A022ECC5DD0067D720 /* ReplyTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyTextHeaderView.swift; sourceTree = "<group>"; };
-		B4FBBE3A22EBF1A9002B9E62 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		B4F804A422ECCB8B0067D720 /* ActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionProtocol.swift; sourceTree = "<group>"; };
+		B4F804A622ECCBA80067D720 /* StackViewItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewItemProtocol.swift; sourceTree = "<group>"; };
+		B4F804A822ECCBBE0067D720 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		B4FBBE3A22EBF1A9002B9E62 /* UIViewItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewItemProtocol.swift; sourceTree = "<group>"; };
 		B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +209,8 @@
 		B4BDA9AE227A759E0064B561 /* Sawgle */ = {
 			isa = PBXGroup;
 			children = (
+				B4F804AA22ECCBCC0067D720 /* Extension */,
+				B4F804A322ECCB6D0067D720 /* Protocol */,
 				B470905322B71CC90049FB1C /* Assets.xcassets */,
 				B42BF59B227AA3CA00D91F09 /* Font */,
 				B4ED24EE229783730000598F /* StartView */,
@@ -218,8 +226,6 @@
 				B4BDA9CB227A87D80064B561 /* FontList.swift */,
 				B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */,
 				B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */,
-				B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */,
-				B4FBBE3A22EBF1A9002B9E62 /* ViewProtocol.swift */,
 			);
 			path = Sawgle;
 			sourceTree = "<group>";
@@ -251,6 +257,25 @@
 				B4ED24F2229784F90000598F /* SignInViewController.swift */,
 			);
 			path = SignInView;
+			sourceTree = "<group>";
+		};
+		B4F804A322ECCB6D0067D720 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B4FBBE3A22EBF1A9002B9E62 /* UIViewItemProtocol.swift */,
+				B4F804A622ECCBA80067D720 /* StackViewItemProtocol.swift */,
+				B4F804A422ECCB8B0067D720 /* ActionProtocol.swift */,
+				B4F804A822ECCBBE0067D720 /* CellProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B4F804AA22ECCBCC0067D720 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4FDCBC022EB7126001F01D3 /* UIButtonExtension.swift in Sources */,
+				B4F804A922ECCBBE0067D720 /* CellProtocol.swift in Sources */,
 				B4F8049922ECBE310067D720 /* SettingViewCellWithSwtich.swift in Sources */,
 				B4AF0AEB229B7DFC008EEED7 /* CustomTabBarView.swift in Sources */,
 				B406BA5122B3266A009B921D /* SettingView.swift in Sources */,
@@ -353,13 +379,15 @@
 				B4AF0AED229B804B008EEED7 /* CustomTabBarController.swift in Sources */,
 				B4AF0AF0229B810A008EEED7 /* HomeViewController.swift in Sources */,
 				B4AF0AF4229BA399008EEED7 /* MyWriteViewController.swift in Sources */,
-				B4FBBE3B22EBF1A9002B9E62 /* ViewProtocol.swift in Sources */,
+				B4FBBE3B22EBF1A9002B9E62 /* UIViewItemProtocol.swift in Sources */,
 				B4CE604222A50526009E889A /* MySubscribePostCell.swift in Sources */,
 				B4BDA9B0227A759E0064B561 /* AppDelegate.swift in Sources */,
 				B4F8049F22ECC5BF0067D720 /* CellHeartView.swift in Sources */,
 				B4CE603C22A4E7CD009E889A /* MyWriteSectionView.swift in Sources */,
+				B4F804A522ECCB8B0067D720 /* ActionProtocol.swift in Sources */,
 				B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */,
 				B4FDCBBE22EB6CBC001F01D3 /* ColorList.swift in Sources */,
+				B4F804A722ECCBA80067D720 /* StackViewItemProtocol.swift in Sources */,
 				B42A743822EC0CB000D9C04F /* ButtonLabelStackView.swift in Sources */,
 				B4AF0AFB229BCBE6008EEED7 /* WriteViewController.swift in Sources */,
 				B4CE603A22A4AC62009E889A /* MyWriteView.swift in Sources */,
