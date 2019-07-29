@@ -39,7 +39,7 @@ class CellHeartView: UIView {
         self.heartCountLabel.text = "\(self.heartCount)"
     }
 
-    func countHeartValue(count: Int) {
+    func makeHeartCount(count: Int) {
         self.heartCountLabel.text = "\(count)"
     }
 

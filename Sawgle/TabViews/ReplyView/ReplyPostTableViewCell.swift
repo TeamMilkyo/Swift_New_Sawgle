@@ -101,11 +101,11 @@ class ReplyPostTableViewCell: UITableViewCell {
     /// setting to postTableViewCellData
     ///
     /// - Parameter replyData: 서버 연동 후 재작업 필요
-    func setPostTableViewCellData(replyData: ReplyData) {
+    func makePostTableViewCellData(replyData: ReplyData) {
         self.replyPostTextLabel.text = replyData.postText
         self.replyPostNickNameLabel.text = replyData.nickName
         self.postDateLabel.text = replyData.postDate
-        self.heartView.countHeartValue(count: replyData.heartCount)
+        self.heartView.makeHeartCount(count: replyData.heartCount)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

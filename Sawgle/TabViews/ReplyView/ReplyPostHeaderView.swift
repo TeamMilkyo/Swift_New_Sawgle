@@ -90,12 +90,12 @@ class ReplyPostHeaderView: UIView {
         ])
     }
 
-    func setTitleLabelCount(count: Int) {
+    func makeTitleLabelCount(count: Int) {
         if count == 0 { self.postHeaderTitleLabel.text = "댓글 없음" }
         else { self.postHeaderTitleLabel.text = "\(count)" }
     }
 
-    func setPostReplyCount(count: Int) {
+    func makePostReplyCount(count: Int) {
         let titleLabelText: String?
         if count == 0 { titleLabelText = "댓글 없음" }
         else { titleLabelText = "댓글 \(count)" }
@@ -106,7 +106,7 @@ class ReplyPostHeaderView: UIView {
         super.init(frame: frame)
         self.makeSubView()
         self.makeSubViewConstraint()
-        self.setPostReplyCount(count: 0)
+        self.makePostReplyCount(count: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -114,12 +114,12 @@ class ReplyViewController: UIViewController {
 
     override func viewDidLoad() {
         navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        self.setKeyboardEvent()
-        self.setReplyTableView()
+        self.makeKeyboardEvent()
+        self.makeReplyTableView()
         self.registerCell()
-        self.setNavigationItemTitleStackView(titleName: "ReplyView") // 네비게이션바 타이틀
-        self.setBackBarButtonItem()
-        self.setStarBarButtonItem(count: 10)
+        self.makeNavigationItemTitleStackView(titleName: "ReplyView") // 네비게이션바 타이틀
+        self.makeBackBarButtonItem()
+        self.makeStarBarButtonItem(count: 10)
         self.makeSubViewConstraint()
     }
 
@@ -130,7 +130,7 @@ class ReplyViewController: UIViewController {
 
     // MARK: - setting Methods
 
-    func setKeyboardEvent() {
+    func makeKeyboardEvent() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -151,7 +151,7 @@ class ReplyViewController: UIViewController {
             let replyData = ReplyData(text: textData)
             self.replyViewPostData.append(replyData)
             self.replyPostHeaderView.postHeaderTextField.text = ""
-            self.replyPostHeaderView.setPostReplyCount(count: self.replyViewPostData.count)
+            self.replyPostHeaderView.makePostReplyCount(count: self.replyViewPostData.count)
 
             DispatchQueue.main.async {
                 self.replyOwnView.replyTableView.reloadData()
@@ -165,7 +165,7 @@ class ReplyViewController: UIViewController {
         }
     }
 
-    func setBackBarButtonItem() {
+    func makeBackBarButtonItem() {
         let backButton = UIButton(type: .custom)
         let originImage = #imageLiteral(resourceName: "Back")
         let renderingImage = originImage.withRenderingMode(.alwaysTemplate)
@@ -177,7 +177,7 @@ class ReplyViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backBarButtonItem
     }
 
-    func setReplyTableView() {
+    func makeReplyTableView() {
         self.replyOwnView.replyTableView.dataSource = self
         self.replyOwnView.replyTableView.delegate = self
         self.replyOwnView.replyTableView.estimatedRowHeight = 50
@@ -185,14 +185,14 @@ class ReplyViewController: UIViewController {
         self.replyOwnView.replyTableView.addGestureRecognizer(self.replyTableViewTapGestureRecognizer)
     }
 
-    func setNavigationItemTitleStackView(titleName: String) {
+    func makeNavigationItemTitleStackView(titleName: String) {
         self.replyViewTitleLabel.text = "\(titleName)"
         self.navigationItemTitleStackView.addArrangedSubview(self.titleImageView)
         self.navigationItemTitleStackView.addArrangedSubview(self.replyViewTitleLabel)
         navigationItem.titleView = self.navigationItemTitleStackView
     }
 
-    func setStarBarButtonItem(count: Int) {
+    func makeStarBarButtonItem(count: Int) {
         self.starCountLabel.text = "\(count)"
         self.starBarButtonItemStackView.addArrangedSubview(self.starButtonImageView)
         self.starBarButtonItemStackView.addArrangedSubview(self.starCountLabel)
@@ -312,7 +312,7 @@ extension ReplyViewController: UITableViewDataSource {
             return replyTextTableViewCell
         } else {
             guard let replyPostTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.replyPostTableViewCellIdentifier, for: indexPath) as? ReplyPostTableViewCell else { return UITableViewCell() }
-            replyPostTableViewCell.setPostTableViewCellData(replyData: self.replyViewPostData.reversed()[indexPath.row])
+            replyPostTableViewCell.makePostTableViewCellData(replyData: self.replyViewPostData.reversed()[indexPath.row])
             replyPostTableViewCell.backgroundColor = ColorList.pale
 
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.cellHeartViewPressed(_:)))

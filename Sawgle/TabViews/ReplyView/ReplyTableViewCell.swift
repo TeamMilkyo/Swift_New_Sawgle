@@ -23,7 +23,7 @@ class ReplyTextTableViewCell: UITableViewCell {
         return replyTextView
     }()
 
-    func setReplyTextView(text: String) {
+    func makeReplyTextView(text: String) {
         self.replyTextView.text = text
     }
 
@@ -39,7 +39,7 @@ class ReplyTextTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.setReplyTextView(text: " ") // 댓글 내용 셋팅
+        self.makeReplyTextView(text: " ") // 댓글 내용 셋팅
         self.makeSubView()
         self.makeSubViewConstraint()
     }
