@@ -22,15 +22,15 @@ class ReplyTextHeaderView: UIView {
 
     let bottomBorderView: UIView = {
         let bottomBorderView = UIView()
-        bottomBorderView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        bottomBorderView.backgroundColor = UIColor.white
         return bottomBorderView
     }()
 
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.font = UIFont(name: "S-CoreDream-5Medium", size: 18)
-        titleLabel.text = " " // 페이지 제목 내용
-        return titleLabel
+    let replyTextHeaderTitleLabel: UILabel = {
+        let replyTextHeaderTitleLabel = UILabel()
+        replyTextHeaderTitleLabel.font = UIFont(name: "S-CoreDream-5Medium", size: 18)
+        replyTextHeaderTitleLabel.text = "페이지 제목" // 페이지 제목 내용
+        return replyTextHeaderTitleLabel
     }()
 
     let dateLabel: UILabel = {
@@ -41,7 +41,8 @@ class ReplyTextHeaderView: UIView {
     }()
 
     let heartImageView: UIImageView = {
-        let heartImageView = UIImageView(image: #imageLiteral(resourceName: "heart"))
+        let heartImageView = UIImageView()
+        heartImageView.image = UIImage(named: "heart")
         heartImageView.contentMode = .scaleAspectFit
         return heartImageView
     }()
@@ -57,11 +58,11 @@ class ReplyTextHeaderView: UIView {
     // MARK: setConstraints
 
     func makeTitleLabelContraint() {
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.replyTextHeaderTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.titleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
-            self.titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.titleLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.76),
+            self.replyTextHeaderTitleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
+            self.replyTextHeaderTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            self.replyTextHeaderTitleLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.76),
         ])
     }
 
@@ -69,8 +70,8 @@ class ReplyTextHeaderView: UIView {
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.dateLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
-            self.dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            self.dateLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 0.8),
+            self.dateLabel.topAnchor.constraint(equalTo: replyTextHeaderTitleLabel.bottomAnchor, constant: 10),
+            self.dateLabel.widthAnchor.constraint(equalTo: replyTextHeaderTitleLabel.widthAnchor, multiplier: 0.8),
         ])
     }
 
@@ -102,22 +103,7 @@ class ReplyTextHeaderView: UIView {
         ])
     }
 
-    func makeSubViewConstraint() {
-        self.makeTitleLabelContraint()
-        self.makeDateLabelContraint()
-        self.makeBottomBorderViewContraint()
-        self.makeHeartImageViewContraint()
-        self.makeHeartCountLabelContraint()
-    }
-
-    func makeSubView() {
-        addSubview(self.titleLabel)
-        addSubview(self.dateLabel)
-        addSubview(self.bottomBorderView)
-        self.setHeartCountView(count: 10)
-    }
-
-    func setHeartCountView(count: Int) {
+    func makeHeartCountView(count: Int) {
         self.heartCountLabel.text = "\(count)"
         addSubview(self.heartImageView)
         addSubview(self.heartCountLabel)
@@ -135,5 +121,22 @@ class ReplyTextHeaderView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyTextHeaderView: UIViewItemProtocol {
+    func makeSubViewConstraint() {
+        self.makeTitleLabelContraint()
+        self.makeDateLabelContraint()
+        self.makeBottomBorderViewContraint()
+        self.makeHeartImageViewContraint()
+        self.makeHeartCountLabelContraint()
+    }
+
+    func makeSubView() {
+        addSubview(self.replyTextHeaderTitleLabel)
+        addSubview(self.dateLabel)
+        addSubview(self.bottomBorderView)
+        self.makeHeartCountView(count: 10)
     }
 }

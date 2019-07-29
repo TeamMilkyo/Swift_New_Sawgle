@@ -23,7 +23,7 @@ class ReplyPostHeaderView: UIView {
     let postHeaderTextField: UITextField = {
         let postHeaderTextField = UITextField()
         postHeaderTextField.placeholder = " Saw that Gle"
-        postHeaderTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        postHeaderTextField.backgroundColor = UIColor.white
         postHeaderTextField.autocorrectionType = .no
         postHeaderTextField.textContentType = .nickname
         postHeaderTextField.spellCheckingType = .no
@@ -36,36 +36,31 @@ class ReplyPostHeaderView: UIView {
         postHeaderButton.titleLabel?.allowsDefaultTighteningForTruncation = false
         postHeaderButton.titleLabel?.adjustsFontSizeToFitWidth = true
         postHeaderButton.titleLabel?.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 10)
-        postHeaderButton.titleLabel?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        postHeaderButton.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        postHeaderButton.titleLabel?.tintColor = UIColor.black
+        postHeaderButton.backgroundColor = ColorList.lightGreyGreen
         return postHeaderButton
     }()
 
     let postHeaderBottomBorderView: UIView = {
         let bottomBorderView = UIView()
-        bottomBorderView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        bottomBorderView.backgroundColor = UIColor.white
         return bottomBorderView
     }()
 
     // MARK: - Setting Methods
 
-    func addSubview() {
-        self.addSubview(self.postHeaderTitleLabel)
-        self.addSubview(self.postHeaderTextField)
-        self.addSubview(self.postHeaderButton)
-        self.addSubview(self.postHeaderBottomBorderView)
-    }
-
     // MARK: set Constraint
 
-    func setConstraint() {
+    func makeHeaderTitleLabelConstraint() {
         self.postHeaderTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             postHeaderTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             postHeaderTitleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
             postHeaderTitleLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -15.7),
         ])
+    }
 
+    func makePostHeaderTextFieldConstraint() {
         self.postHeaderTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             postHeaderTextField.leftAnchor.constraint(equalTo: postHeaderTitleLabel.leftAnchor),
@@ -73,7 +68,9 @@ class ReplyPostHeaderView: UIView {
             postHeaderTextField.widthAnchor.constraint(equalTo: postHeaderTitleLabel.widthAnchor, multiplier: 0.85),
             postHeaderTextField.heightAnchor.constraint(equalTo: postHeaderTitleLabel.heightAnchor, multiplier: 1.3),
         ])
+    }
 
+    func makePostHeaderButtonConstraint() {
         self.postHeaderButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             postHeaderButton.leftAnchor.constraint(equalTo: postHeaderTextField.rightAnchor),
@@ -81,7 +78,9 @@ class ReplyPostHeaderView: UIView {
             postHeaderButton.centerYAnchor.constraint(equalTo: postHeaderTextField.centerYAnchor),
             postHeaderButton.heightAnchor.constraint(equalTo: postHeaderTextField.heightAnchor),
         ])
+    }
 
+    func makeBottomBorderViewConstraint() {
         self.postHeaderBottomBorderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             postHeaderBottomBorderView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
@@ -105,12 +104,28 @@ class ReplyPostHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview()
-        self.setConstraint()
+        self.makeSubView()
+        self.makeSubViewConstraint()
         self.setPostReplyCount(count: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyPostHeaderView: UIViewItemProtocol {
+    func makeSubView() {
+        self.addSubview(self.postHeaderTitleLabel)
+        self.addSubview(self.postHeaderTextField)
+        self.addSubview(self.postHeaderButton)
+        self.addSubview(self.postHeaderBottomBorderView)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeHeaderTitleLabelConstraint()
+        self.makePostHeaderTextFieldConstraint()
+        self.makePostHeaderButtonConstraint()
+        self.makeBottomBorderViewConstraint()
     }
 }

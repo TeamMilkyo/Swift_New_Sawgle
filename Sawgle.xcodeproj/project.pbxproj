@@ -14,7 +14,7 @@
 		389F08F822BA26BC00EA5AD6 /* SawgleAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */; };
 		B406BA5122B3266A009B921D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B406BA5022B3266A009B921D /* SettingView.swift */; };
 		B406BA5922B354AD009B921D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B406BA5822B354AD009B921D /* SettingTableViewCell.swift */; };
-		B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */; };
+		B4189F8F22929AF100B10E46 /* BirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4189F8E22929AF100B10E46 /* BirthDayViewController.swift */; };
 		B42A743622EC0C8E00D9C04F /* TwoButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A743522EC0C8E00D9C04F /* TwoButtonStackView.swift */; };
 		B42A743822EC0CB000D9C04F /* ButtonLabelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42A743722EC0CB000D9C04F /* ButtonLabelStackView.swift */; };
 		B42BF59D227AAAC300D91F09 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BF59C227AAAC300D91F09 /* SignInView.swift */; };
@@ -64,7 +64,7 @@
 		389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawgleAPIData.swift; sourceTree = "<group>"; };
 		B406BA5022B3266A009B921D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B406BA5822B354AD009B921D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayVIewController.swift; sourceTree = "<group>"; };
+		B4189F8E22929AF100B10E46 /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
 		B4189F9022929E4C00B10E46 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
 		B4189F9122929E5400B10E46 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
 		B42A743522EC0C8E00D9C04F /* TwoButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonStackView.swift; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 				B4F8049C22ECC58A0067D720 /* ReplyPostTableViewCell.swift */,
 				386CD01022B7834700D69166 /* ReplyView.swift */,
 				386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */,
-				B4F8049A22ECC5280067D720 /* ReplyPostHeaderView.swift */,
 				B4F8049E22ECC5BF0067D720 /* CellHeartView.swift */,
+				B4F8049A22ECC5280067D720 /* ReplyPostHeaderView.swift */,
 				B4F804A022ECC5DD0067D720 /* ReplyTextHeaderView.swift */,
 			);
 			path = ReplyView;
@@ -224,7 +224,7 @@
 				1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */,
 				B4BDA9BB227A759F0064B561 /* Info.plist */,
 				B4BDA9CB227A87D80064B561 /* FontList.swift */,
-				B4189F8E22929AF100B10E46 /* BirthDayVIewController.swift */,
+				B4189F8E22929AF100B10E46 /* BirthDayViewController.swift */,
 				B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */,
 			);
 			path = Sawgle;
@@ -385,7 +385,7 @@
 				B4F8049F22ECC5BF0067D720 /* CellHeartView.swift in Sources */,
 				B4CE603C22A4E7CD009E889A /* MyWriteSectionView.swift in Sources */,
 				B4F804A522ECCB8B0067D720 /* ActionProtocol.swift in Sources */,
-				B4189F8F22929AF100B10E46 /* BirthDayVIewController.swift in Sources */,
+				B4189F8F22929AF100B10E46 /* BirthDayViewController.swift in Sources */,
 				B4FDCBBE22EB6CBC001F01D3 /* ColorList.swift in Sources */,
 				B4F804A722ECCBA80067D720 /* StackViewItemProtocol.swift in Sources */,
 				B42A743822EC0CB000D9C04F /* ButtonLabelStackView.swift in Sources */,

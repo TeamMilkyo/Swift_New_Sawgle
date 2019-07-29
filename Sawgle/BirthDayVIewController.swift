@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BirthDayVIewController: UIViewController {
+class BirthDayViewController: UIViewController {
     @IBAction func moveParentViewController(_: Any) {
         self.dismiss(animated: true)
     }

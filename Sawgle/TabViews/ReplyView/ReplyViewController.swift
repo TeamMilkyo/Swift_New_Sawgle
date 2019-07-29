@@ -71,12 +71,13 @@ class ReplyViewController: UIViewController {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         titleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
         titleLabel.tintColor = ColorList.greyishBrown
+        titleLabel.text = "네비게이션 타이틀"
         return titleLabel
     }()
 
     let titleImageView: UIImageView = {
         let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        titleImageView.image = #imageLiteral(resourceName: "logo")
+        titleImageView.image = UIImage(named: "logo")
         titleImageView.contentMode = .scaleAspectFit
         return titleImageView
     }()
@@ -115,9 +116,9 @@ class ReplyViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.setKeyboardEvent()
         self.setReplyTableView()
-        self.registerTableViewCell()
+        self.registerCell()
+        self.setNavigationItemTitleStackView(titleName: "ReplyView") // 네비게이션바 타이틀
         self.setBackBarButtonItem()
-        self.setNavigationItemTitleStackView(titleName: " ") // 네비게이션바 타이틀
         self.setStarBarButtonItem(count: 10)
         self.makeSubViewConstraint()
     }
@@ -198,11 +199,6 @@ class ReplyViewController: UIViewController {
         self.starBarButtonItemStackView.addGestureRecognizer(self.starCountButtonTapGestureRecognizer)
         let starBarButtonItem = UIBarButtonItem(customView: starBarButtonItemStackView)
         self.navigationItem.rightBarButtonItem = starBarButtonItem
-    }
-
-    func registerTableViewCell() {
-        self.replyOwnView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
-        self.replyOwnView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
     }
 
     // MARK: setConstraints
@@ -363,5 +359,12 @@ extension ReplyViewController: UITableViewDelegate {
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
         return .leastNonzeroMagnitude
+    }
+}
+
+extension ReplyViewController: CellProtocol {
+    func registerCell() {
+        self.replyOwnView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
+        self.replyOwnView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
     }
 }

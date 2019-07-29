@@ -12,34 +12,36 @@ import UIKit
 
 class ReplyPostTableViewCell: UITableViewCell {
     let heartView: CellHeartView = {
-        let heartView = CellHeartView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let heartView = CellHeartView()
+
         return heartView
     }()
 
-    let replyPostDateLabel: UILabel = {
+    let postDateLabel: UILabel = {
         let replyPostDateLabel = UILabel()
-        replyPostDateLabel.text = " " // 댓글 타임스탬프
+        replyPostDateLabel.text = "댓글 날짜" // 댓글 타임스탬프
         replyPostDateLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 10)
         return replyPostDateLabel
     }()
 
     let replyPostNickNameLabel: UILabel = {
         let replyPostNickNameLabel = UILabel()
-        replyPostNickNameLabel.font = UIFont(name: "S-CoreDream-5Medium", size: 12)
-        replyPostNickNameLabel.text = " " // 댓글 닉네임
+        replyPostNickNameLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12)
+        replyPostNickNameLabel.text = "닉네임" // 댓글 닉네임
+        replyPostNickNameLabel.textColor = UIColor.black
         return replyPostNickNameLabel
     }()
 
     let replyPostTextLabel: UILabel = {
         let replyPostTextLabel = UILabel()
         replyPostTextLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 11)
-        replyPostTextLabel.text = " " // 댓글 내용
+        replyPostTextLabel.text = "댓글 텍스트" // 댓글 내용
         return replyPostTextLabel
     }()
 
     let bottomBorderView: UIView = {
         let bottomBorderView = UIView()
-        bottomBorderView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        bottomBorderView.backgroundColor = UIColor.white
         return bottomBorderView
     }()
 
@@ -47,14 +49,16 @@ class ReplyPostTableViewCell: UITableViewCell {
 
     // MARK: set Constraint
 
-    func setConstraint() {
-        self.replyPostDateLabel.translatesAutoresizingMaskIntoConstraints = false
+    func makePostDateLabelConstraint() {
+        self.postDateLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            replyPostDateLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            replyPostDateLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
-            replyPostDateLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            postDateLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            postDateLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
+            postDateLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
         ])
+    }
 
+    func makeBottomBorderViewConstraint() {
         self.bottomBorderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             bottomBorderView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
@@ -62,44 +66,35 @@ class ReplyPostTableViewCell: UITableViewCell {
             bottomBorderView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             bottomBorderView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
 
+    func makePostNickNameLabelConstraint() {
         self.replyPostNickNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            replyPostNickNameLabel.topAnchor.constraint(equalTo: replyPostDateLabel.bottomAnchor, constant: 6),
+            replyPostNickNameLabel.topAnchor.constraint(equalTo: postDateLabel.bottomAnchor, constant: 6),
             replyPostNickNameLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 15.7),
             replyPostNickNameLabel.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.1),
             replyPostNickNameLabel.bottomAnchor.constraint(equalTo: bottomBorderView.bottomAnchor, constant: -9),
         ])
+    }
 
+    func makePostTextLabelConstraint() {
         self.replyPostTextLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             replyPostTextLabel.leftAnchor.constraint(equalTo: replyPostNickNameLabel.rightAnchor, constant: 5),
-            replyPostTextLabel.rightAnchor.constraint(equalTo: replyPostDateLabel.rightAnchor),
+            replyPostTextLabel.rightAnchor.constraint(equalTo: postDateLabel.rightAnchor),
             replyPostTextLabel.centerYAnchor.constraint(equalTo: replyPostNickNameLabel.centerYAnchor),
             replyPostTextLabel.heightAnchor.constraint(equalTo: replyPostNickNameLabel.heightAnchor),
         ])
+    }
 
+    func makeHeartViewContraint() {
         self.heartView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            heartView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             heartView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -15.7),
-            heartView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            heartView.leftAnchor.constraint(equalTo: replyPostDateLabel.rightAnchor),
-        ])
-
-        self.heartView.heartImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            heartView.heartImageView.topAnchor.constraint(equalTo: heartView.topAnchor, constant: 0),
-            heartView.heartImageView.centerXAnchor.constraint(equalTo: heartView.centerXAnchor),
-            heartView.heartImageView.heightAnchor.constraint(equalToConstant: 15),
-        ])
-
-        self.heartView.heartCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            heartView.heartCountLabel.centerXAnchor.constraint(equalTo: heartView.heartImageView.centerXAnchor),
-            heartView.heartCountLabel.topAnchor.constraint(equalTo: heartView.heartImageView.bottomAnchor, constant: 3),
-            heartView.heartCountLabel.bottomAnchor.constraint(equalTo: heartView.bottomAnchor, constant: 0),
-
+            heartView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: -10),
+            heartView.heightAnchor.constraint(equalToConstant: 25),
+            heartView.widthAnchor.constraint(equalTo: heartView.heightAnchor, multiplier: 1),
         ])
     }
 
@@ -109,25 +104,35 @@ class ReplyPostTableViewCell: UITableViewCell {
     func setPostTableViewCellData(replyData: ReplyData) {
         self.replyPostTextLabel.text = replyData.postText
         self.replyPostNickNameLabel.text = replyData.nickName
-        self.replyPostDateLabel.text = replyData.postDate
+        self.postDateLabel.text = replyData.postDate
         self.heartView.setHeartCount(count: replyData.heartCount)
-    }
-
-    func addSubviews() {
-        addSubview(self.replyPostDateLabel)
-        addSubview(self.replyPostNickNameLabel)
-        addSubview(self.replyPostTextLabel)
-        addSubview(self.bottomBorderView)
-        addSubview(self.heartView)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubviews()
-        self.setConstraint()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyPostTableViewCell: UIViewItemProtocol {
+    func makeSubView() {
+        addSubview(self.heartView)
+        addSubview(self.bottomBorderView)
+        addSubview(self.postDateLabel)
+        addSubview(self.replyPostNickNameLabel)
+        addSubview(self.replyPostTextLabel)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeBottomBorderViewConstraint()
+        self.makePostDateLabelConstraint()
+        self.makePostNickNameLabelConstraint()
+        self.makePostTextLabelConstraint()
+        self.makeHeartViewContraint()
     }
 }

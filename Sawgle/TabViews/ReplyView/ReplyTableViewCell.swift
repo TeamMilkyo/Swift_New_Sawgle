@@ -27,7 +27,7 @@ class ReplyTextTableViewCell: UITableViewCell {
         self.replyTextView.text = text
     }
 
-    func setConstraint() {
+    func makeReplyTextViewContraint() {
         self.replyTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             replyTextView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -37,18 +37,24 @@ class ReplyTextTableViewCell: UITableViewCell {
         ])
     }
 
-    func addSubViews() {
-        addSubview(self.replyTextView)
-    }
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubViews()
         self.setReplyTextView(text: " ") // 댓글 내용 셋팅
-        self.setConstraint()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyTextTableViewCell: UIViewItemProtocol {
+    func makeSubView() {
+        addSubview(self.replyTextView)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeReplyTextViewContraint()
     }
 }
