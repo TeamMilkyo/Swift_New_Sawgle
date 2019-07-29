@@ -35,13 +35,13 @@ class mySubscribePostCell: UICollectionViewCell {
 
     let lineView: UIView = {
         let lineView = UIView()
-        lineView.backgroundColor = UIColor(named: "Pale")
+        lineView.backgroundColor = ColorList.pale
         return lineView
     }()
 
     let goPostButton: UIButton = {
         let goPostButton = UIButton()
-        goPostButton.setTitleColor(UIColor(named: "PaleBrown"), for: .normal)
+        goPostButton.setTitleColor(ColorList.paleBrown, for: .normal)
         goPostButton.setTitle("게시글 보기", for: .normal)
         goPostButton.titleLabel?.font = UIFont(name: "S-CoreDream-5Medium", size: 13)
         return goPostButton
@@ -106,15 +106,21 @@ class mySubscribePostCell: UICollectionViewCell {
         ])
     }
 
-    func addViewItem() {
-        addSubview(self.nameLabel)
-        addSubview(self.timeLabel)
-        addSubview(self.postTextView)
-        addSubview(self.lineView)
-        addSubview(self.goPostButton)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = ColorList.brownish
+        layer.cornerRadius = 15
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
-    func addVieItemConstraint() {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+extension mySubscribePostCell: UIViewItemProtocol {
+    func makeSubViewConstraint() {
         self.makeNameLabelConstraint()
         self.makeTimeLabelConstraint()
         self.makePostTextViewConstraint()
@@ -123,15 +129,11 @@ class mySubscribePostCell: UICollectionViewCell {
         self.makeGoPostButtonConstraint()
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor(named: "brownish")
-        layer.cornerRadius = 15
-        self.addViewItem()
-        self.addVieItemConstraint()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func makeSubView() {
+        addSubview(self.nameLabel)
+        addSubview(self.timeLabel)
+        addSubview(self.postTextView)
+        addSubview(self.lineView)
+        addSubview(self.goPostButton)
     }
 }

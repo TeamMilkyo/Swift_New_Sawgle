@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIFont {
-    func mainFont(displaySize: CGFloat) -> UIFont {
+    static func mainFont(displaySize: CGFloat) -> UIFont {
         if let mainFont = UIFont(name: "SangSangShinb7", size: displaySize) {
             return mainFont
         }

@@ -9,13 +9,9 @@
 import UIKit
 
 class MyWriteViewController: UIViewController {
-    lazy var ownView: MyWriteView = {
-        guard let ownView = view as? MyWriteView else {
-            return MyWriteView()
-        }
-
-        return ownView
-    }()
+    var mywriteOwnView: MyWriteView {
+        return self.view as! MyWriteView
+    }
 
     override func loadView() {
         view = MyWriteView()
@@ -23,29 +19,29 @@ class MyWriteViewController: UIViewController {
 
     override func viewDidLoad() {
         self.navigationItem.title = "마이글"
-        self.ownView.mySubscribePostView.register(mySubscribePostCell.self, forCellWithReuseIdentifier: "mySubscribePostCell")
-        self.ownView.mySubscribePostView.delegate = self
-        self.ownView.mySubscribePostView.dataSource = self
+        registerCell()
+        self.mywriteOwnView.mySubscribePostView.delegate = self
+        self.mywriteOwnView.mySubscribePostView.dataSource = self
     }
 
     override func viewDidLayoutSubviews() {
-        let halfViewWidth = self.ownView.bounds.width / 2 - self.ownView.nameImageView.bounds.width
+        let halfViewWidth = self.mywriteOwnView.bounds.width / 2 - self.mywriteOwnView.nameImageView.bounds.width
 
-        if self.ownView.nameLabel.bounds.width > halfViewWidth {
-            self.ownView.nameLabel.widthAnchor.constraint(equalToConstant: halfViewWidth).isActive = true
-            self.ownView.nameLabel.adjustsFontSizeToFitWidth = true
+        if self.mywriteOwnView.nameLabel.bounds.width > halfViewWidth {
+            self.mywriteOwnView.nameLabel.widthAnchor.constraint(equalToConstant: halfViewWidth).isActive = true
+            self.mywriteOwnView.nameLabel.adjustsFontSizeToFitWidth = true
         }
     }
 
     override func viewDidAppear(_: Bool) {
-        let countFont = UIFont(name: "S-CoreDream-3Light", size: self.ownView.myWriteSectionView.countLabel.bounds.height)
-        let unitFont = UIFont(name: "S-CoreDream-3Light", size: self.ownView.myWriteSectionView.countLabel.bounds.height * 0.45)
-        self.ownView.myWriteSectionView.countLabel.font = countFont
-        self.ownView.myCommentSectionView.countLabel.font = countFont
-        self.ownView.myLikePostSectionView.countLabel.font = countFont
-        self.ownView.myWriteSectionView.unitLabel.font = unitFont
-        self.ownView.myCommentSectionView.unitLabel.font = unitFont
-        self.ownView.myLikePostSectionView.unitLabel.font = unitFont
+        let countFont = UIFont(name: "S-CoreDream-3Light", size: self.mywriteOwnView.myWriteSectionView.countLabel.bounds.height)
+        let unitFont = UIFont(name: "S-CoreDream-3Light", size: self.mywriteOwnView.myWriteSectionView.countLabel.bounds.height * 0.45)
+        self.mywriteOwnView.myWriteSectionView.countLabel.font = countFont
+        self.mywriteOwnView.myCommentSectionView.countLabel.font = countFont
+        self.mywriteOwnView.myLikePostSectionView.countLabel.font = countFont
+        self.mywriteOwnView.myWriteSectionView.unitLabel.font = unitFont
+        self.mywriteOwnView.myCommentSectionView.unitLabel.font = unitFont
+        self.mywriteOwnView.myLikePostSectionView.unitLabel.font = unitFont
     }
 }
 
@@ -74,6 +70,12 @@ extension MyWriteViewController: UICollectionViewDelegateFlowLayout {
         let height = collectionView.bounds.height
 
         return CGSize(width: width, height: height)
+    }
+}
+
+extension MyWriteViewController: CellProtocol {
+    func registerCell() {
+        self.mywriteOwnView.mySubscribePostView.register(mySubscribePostCell.self, forCellWithReuseIdentifier: "mySubscribePostCell")
     }
 }
 

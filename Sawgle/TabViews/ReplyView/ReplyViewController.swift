@@ -26,12 +26,11 @@ class ReplyViewController: UIViewController {
     let replyTextTableViewCellIdentifier = "replyTextTableViewCell"
     let replyPostTableViewCellIdentifier = "replyPostTableViewCell"
     var isKeyboard = false
-    var replyViewPostData: [ReplyData] = []
+    var replyViewPostData = [ReplyData]()
 
-    lazy var replyView: ReplyView = {
-        guard let replyView = view as? ReplyView else { return ReplyView() }
-        return replyView
-    }()
+    var replyOwnView: ReplyView {
+        return self.view as! ReplyView
+    }
 
     let replyPostHeaderView: ReplyPostHeaderView = {
         let replyPostHeaderView = ReplyPostHeaderView()
@@ -68,16 +67,17 @@ class ReplyViewController: UIViewController {
         return navigationItemTitleStackView
     }()
 
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        titleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
-        titleLabel.tintColor = UIColor(named: "greyishBrown")
-        return titleLabel
+    let replyViewTitleLabel: UILabel = {
+        let replyViewTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        replyViewTitleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
+        replyViewTitleLabel.tintColor = ColorList.greyishBrown
+        replyViewTitleLabel.text = "ReplyView Title"
+        return replyViewTitleLabel
     }()
 
     let titleImageView: UIImageView = {
         let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        titleImageView.image = #imageLiteral(resourceName: "logo")
+        titleImageView.image = UIImage(named: "logo")
         titleImageView.contentMode = .scaleAspectFit
         return titleImageView
     }()
@@ -95,7 +95,7 @@ class ReplyViewController: UIViewController {
     let starCountLabel: UILabel = {
         let starCountLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         starCountLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 10)
-        starCountLabel.tintColor = UIColor(named: "greyishBrown")
+        starCountLabel.tintColor = ColorList.greyishBrown
         return starCountLabel
     }()
 
@@ -114,13 +114,13 @@ class ReplyViewController: UIViewController {
 
     override func viewDidLoad() {
         navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        self.setKeyboardEvent()
-        self.setReplyTableView()
-        self.registerTableViewCell()
-        self.setBackBarButtonItem()
-        self.setNavigationItemTitleStackView(titleName: " ") // 네비게이션바 타이틀
-        self.setStarBarButtonItem(count: 10)
-        self.setConstraints()
+        self.makeKeyboardEvent()
+        self.makeReplyTableView()
+        self.registerCell()
+        self.makeNavigationItemTitleStackView(titleName: "ReplyView") // 네비게이션바 타이틀
+        self.makeBackBarButtonItem()
+        self.makeStarBarButtonItem(count: 10)
+        self.makeSubViewConstraint()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -130,7 +130,7 @@ class ReplyViewController: UIViewController {
 
     // MARK: - setting Methods
 
-    func setKeyboardEvent() {
+    func makeKeyboardEvent() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -151,10 +151,10 @@ class ReplyViewController: UIViewController {
             let replyData = ReplyData(text: textData)
             self.replyViewPostData.append(replyData)
             self.replyPostHeaderView.postHeaderTextField.text = ""
-            self.replyPostHeaderView.setPostReplyCount(count: self.replyViewPostData.count)
+            self.replyPostHeaderView.makePostReplyCount(count: self.replyViewPostData.count)
 
             DispatchQueue.main.async {
-                self.replyView.replyTableView.reloadData()
+                self.replyOwnView.replyTableView.reloadData()
             }
 
         } else {
@@ -165,34 +165,34 @@ class ReplyViewController: UIViewController {
         }
     }
 
-    func setBackBarButtonItem() {
+    func makeBackBarButtonItem() {
         let backButton = UIButton(type: .custom)
         let originImage = #imageLiteral(resourceName: "Back")
         let renderingImage = originImage.withRenderingMode(.alwaysTemplate)
         backButton.setImage(renderingImage, for: .normal)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.tintColor = UIColor(named: "PinkishGrey")
+        backButton.tintColor = ColorList.pinkishGrey
         backButton.addTarget(self, action: #selector(self.backButtonPressed(_:)), for: UIControl.Event.touchUpInside)
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         self.navigationItem.leftBarButtonItem = backBarButtonItem
     }
 
-    func setReplyTableView() {
-        self.replyView.replyTableView.dataSource = self
-        self.replyView.replyTableView.delegate = self
-        self.replyView.replyTableView.estimatedRowHeight = 50
-        self.replyView.replyTableView.rowHeight = UITableView.automaticDimension
-        self.replyView.replyTableView.addGestureRecognizer(self.replyTableViewTapGestureRecognizer)
+    func makeReplyTableView() {
+        self.replyOwnView.replyTableView.dataSource = self
+        self.replyOwnView.replyTableView.delegate = self
+        self.replyOwnView.replyTableView.estimatedRowHeight = 50
+        self.replyOwnView.replyTableView.rowHeight = UITableView.automaticDimension
+        self.replyOwnView.replyTableView.addGestureRecognizer(self.replyTableViewTapGestureRecognizer)
     }
 
-    func setNavigationItemTitleStackView(titleName: String) {
-        self.titleLabel.text = "\(titleName)"
+    func makeNavigationItemTitleStackView(titleName: String) {
+        self.replyViewTitleLabel.text = "\(titleName)"
         self.navigationItemTitleStackView.addArrangedSubview(self.titleImageView)
-        self.navigationItemTitleStackView.addArrangedSubview(self.titleLabel)
+        self.navigationItemTitleStackView.addArrangedSubview(self.replyViewTitleLabel)
         navigationItem.titleView = self.navigationItemTitleStackView
     }
 
-    func setStarBarButtonItem(count: Int) {
+    func makeStarBarButtonItem(count: Int) {
         self.starCountLabel.text = "\(count)"
         self.starBarButtonItemStackView.addArrangedSubview(self.starButtonImageView)
         self.starBarButtonItemStackView.addArrangedSubview(self.starCountLabel)
@@ -201,17 +201,12 @@ class ReplyViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = starBarButtonItem
     }
 
-    func registerTableViewCell() {
-        self.replyView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
-        self.replyView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
-    }
-
     // MARK: setConstraints
 
-    func setConstraints() {
+    func makeStarButtonImageViewContraint() {
         self.starButtonImageView.translatesAutoresizingMaskIntoConstraints = false
         self.starCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.replyViewTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleImageView.translatesAutoresizingMaskIntoConstraints = false
         self.starBarButtonItemStackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -219,11 +214,18 @@ class ReplyViewController: UIViewController {
             starButtonImageView.heightAnchor.constraint(equalTo: starCountLabel.heightAnchor, multiplier: 0.63),
             starButtonImageView.topAnchor.constraint(equalTo: starBarButtonItemStackView.topAnchor, constant: 5),
         ])
+    }
 
+    func makeTitleImageViewConstraint() {
         NSLayoutConstraint.activate([
-            titleImageView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.63),
+            titleImageView.heightAnchor.constraint(equalTo: replyViewTitleLabel.heightAnchor, multiplier: 0.63),
 
         ])
+    }
+
+    func makeSubViewConstraint() {
+        self.makeStarButtonImageViewContraint()
+        self.makeTitleImageViewConstraint()
     }
 
     // MARK: - Getting Methods
@@ -306,12 +308,12 @@ extension ReplyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let replyTextTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.replyTextTableViewCellIdentifier, for: indexPath) as? ReplyTextTableViewCell else { return UITableViewCell() }
-            replyTextTableViewCell.backgroundColor = UIColor(named: "Pale")
+            replyTextTableViewCell.backgroundColor = ColorList.pale
             return replyTextTableViewCell
         } else {
             guard let replyPostTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.replyPostTableViewCellIdentifier, for: indexPath) as? ReplyPostTableViewCell else { return UITableViewCell() }
-            replyPostTableViewCell.setPostTableViewCellData(replyData: self.replyViewPostData.reversed()[indexPath.row])
-            replyPostTableViewCell.backgroundColor = UIColor(named: "Pale")
+            replyPostTableViewCell.makePostTableViewCellData(replyData: self.replyViewPostData.reversed()[indexPath.row])
+            replyPostTableViewCell.backgroundColor = ColorList.pale
 
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.cellHeartViewPressed(_:)))
             tapGestureRecognizer.numberOfTapsRequired = 1
@@ -330,12 +332,12 @@ extension ReplyViewController: UITableViewDelegate {
         switch replyTableViewSection {
         case .textTableViewSection:
             let replyTextHeaderView = ReplyTextHeaderView()
-            replyTextHeaderView.backgroundColor = UIColor(named: "Pale")
+            replyTextHeaderView.backgroundColor = ColorList.pale
             replyTextHeaderView.heartImageView.isUserInteractionEnabled = true
             replyTextHeaderView.heartImageView.addGestureRecognizer(self.heartButtonTapGestureRecognizer)
             return replyTextHeaderView
         case .postTableViewSection:
-            self.replyPostHeaderView.backgroundColor = UIColor(named: "Pale")
+            self.replyPostHeaderView.backgroundColor = ColorList.pale
             self.replyPostHeaderView.postHeaderButton.isUserInteractionEnabled = true
             self.replyPostHeaderView.postHeaderButton.addGestureRecognizer(self.replyViewPostButtonLongPressGestureRecognizer)
             return self.replyPostHeaderView
@@ -357,5 +359,12 @@ extension ReplyViewController: UITableViewDelegate {
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
         return .leastNonzeroMagnitude
+    }
+}
+
+extension ReplyViewController: CellProtocol {
+    func registerCell() {
+        self.replyOwnView.replyTableView.register(ReplyTextTableViewCell.self, forCellReuseIdentifier: self.replyTextTableViewCellIdentifier)
+        self.replyOwnView.replyTableView.register(ReplyPostTableViewCell.self, forCellReuseIdentifier: self.replyPostTableViewCellIdentifier)
     }
 }

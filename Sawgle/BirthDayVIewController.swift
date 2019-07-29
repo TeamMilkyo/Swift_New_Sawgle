@@ -8,8 +8,8 @@
 
 import UIKit
 
-class BirthDayVIewController: UIViewController {
-    @IBAction func moveParentVC(_: Any) {
+class BirthDayViewController: UIViewController {
+    @IBAction func dismissViewController(_: Any) {
         self.dismiss(animated: true)
     }
 

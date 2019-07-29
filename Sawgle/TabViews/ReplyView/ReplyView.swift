@@ -15,7 +15,7 @@ class ReplyView: UIView {
 
     let replyTableView: UITableView = {
         let replyTableView = UITableView(frame: CGRect.zero, style: .grouped)
-        replyTableView.backgroundColor = UIColor(named: "PinkishGrey")
+        replyTableView.backgroundColor = ColorList.pinkishGrey
         replyTableView.separatorStyle = .none
         replyTableView.allowsSelection = false
         return replyTableView
@@ -25,7 +25,7 @@ class ReplyView: UIView {
 
     // MARK: setViewConstraints
 
-    func setReplyTableViewConstratins() {
+    func makeReplyTableViewConstraint() {
         self.replyTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             replyTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -39,11 +39,21 @@ class ReplyView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.replyTableView)
-        self.setReplyTableViewConstratins()
+        self.makeSubView()
+        self.makeSubViewConstraint()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension ReplyView: UIViewItemProtocol {
+    func makeSubView() {
+        self.addSubview(self.replyTableView)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeReplyTableViewConstraint()
     }
 }

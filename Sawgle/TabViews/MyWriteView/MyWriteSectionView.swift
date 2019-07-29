@@ -11,7 +11,7 @@ import UIKit
 class MyWriteSectionView: UIView {
     let sectionTitleLabel: UILabel = {
         let sectionTitleLabel = UILabel()
-        sectionTitleLabel.textColor = UIColor(named: "PaleBrown")
+        sectionTitleLabel.textColor = ColorList.paleBrown
         sectionTitleLabel.font = UIFont(name: "S-CoreDream-3Light", size: 10)
         sectionTitleLabel.baselineAdjustment = .alignCenters
         sectionTitleLabel.sizeToFit()
@@ -20,14 +20,14 @@ class MyWriteSectionView: UIView {
 
     let countLabel: UILabel = {
         let countLabel = UILabel()
-        countLabel.textColor = UIColor(named: "NewBrown")
-        countLabel.font = UIFont().mainFont(displaySize: 10)
+        countLabel.textColor = ColorList.newBrown
+        countLabel.font = UIFont.mainFont(displaySize: 10)
         return countLabel
     }()
 
     let unitLabel: UILabel = {
         let unitLabel = UILabel()
-        unitLabel.textColor = UIColor(named: "NewBrown")
+        unitLabel.textColor = ColorList.newBrown
         unitLabel.text = "개"
         return unitLabel
     }()
@@ -73,29 +73,31 @@ class MyWriteSectionView: UIView {
         ])
     }
 
-    func addViewItemInMyWriteSectionView() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        layer.cornerRadius = 15
+        self.makeSubView()
+        self.makeSubViewConstraint()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+extension MyWriteSectionView: UIViewItemProtocol {
+    func makeSubView() {
         addSubview(self.sectionTitleLabel)
         addSubview(self.countLabel)
         addSubview(self.enterImageView)
         addSubview(self.unitLabel)
     }
 
-    func addViewItemConstraintInMyWriteSectionView() {
+    func makeSubViewConstraint() {
         self.makeSectionTitleLabelConstraint()
         self.makeCountLabelConstraint()
         self.makeUnitLabelConstraint()
         self.makeEnterImageViewConstraint()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
-        layer.cornerRadius = 15
-        self.addViewItemInMyWriteSectionView()
-        self.addViewItemConstraintInMyWriteSectionView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }

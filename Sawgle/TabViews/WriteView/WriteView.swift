@@ -23,7 +23,7 @@ class WriteView: UIView {
 
     let menuView: UIView = {
         let menuView = UIView()
-        menuView.backgroundColor = UIColor(named: "Pale")
+        menuView.backgroundColor = ColorList.pale
         return menuView
     }()
 
@@ -38,18 +38,18 @@ class WriteView: UIView {
 
     let leftButton: UIButton = {
         let leftButton = UIButton().makeSideButton(title: "취소")
-        leftButton.setTitleColor(UIColor(named: "brownishGray"), for: .normal)
+        leftButton.setTitleColor(ColorList.brownishGray, for: .normal)
         return leftButton
     }()
 
     let rightButton: UIButton = {
         let rightButton = UIButton().makeSideButton(title: "써글")
-        rightButton.setTitleColor(UIColor(named: "brownishGray"), for: .normal)
+        rightButton.setTitleColor(ColorList.brownishGray, for: .normal)
         return rightButton
     }()
 
     let logoImageView: UIImageView = {
-        UIView().makeLogoView()
+        UIImageView()
     }()
 
     func makeMenuViewConstraint() {
@@ -88,24 +88,12 @@ class WriteView: UIView {
         ])
     }
 
-    func addViewItemInWriteView() {
-        addSubview(self.menuView)
-        addSubview(self.leftButton)
-        addSubview(self.logoImageView)
-        addSubview(self.rightButton)
-        addSubview(self.bottomView)
-    }
-
-    func makeViewItemConstraint() {
-        self.makeMenuViewConstraint()
-        self.makeLogoViewConstraint()
-        self.makeButtonConstarint(targetButton: self.leftButton)
-        self.makeButtonConstarint(targetButton: self.rightButton)
-
-        self.leftButton.leadingAnchor.constraint(equalTo: self.menuView.leadingAnchor, constant: 32).isActive = true
-        self.rightButton.trailingAnchor.constraint(equalTo: self.menuView.trailingAnchor, constant: -32).isActive = true
-
-        self.makeBottomViewConstraint()
+    func makeLogoView(target: UIImageView) {
+        let logo = UIImage(named: "logo")
+        target.image = logo
+        target.translatesAutoresizingMaskIntoConstraints = false
+        target.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        target.widthAnchor.constraint(equalTo: self.logoImageView.heightAnchor).isActive = true
     }
 
     override init(frame: CGRect) {
@@ -113,8 +101,10 @@ class WriteView: UIView {
 
         backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9215686275, blue: 0.8235294118, alpha: 1)
 
-        self.addViewItemInWriteView()
-        self.makeViewItemConstraint()
+        self.makeSubView()
+        self.makeLogoView(target: self.logoImageView)
+        self.makeSubViewConstraint()
+        self.linkAction()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -128,5 +118,33 @@ extension UIButton {
         leftButton.setTitle(title, for: .normal)
         leftButton.titleLabel?.font = UIFont(name: "S-CoreDream-4Regular", size: 17)
         return leftButton
+    }
+}
+
+extension WriteView: UIViewItemProtocol {
+    func makeSubView() {
+        addSubview(self.menuView)
+        addSubview(self.leftButton)
+        addSubview(self.logoImageView)
+        addSubview(self.rightButton)
+        addSubview(self.bottomView)
+    }
+
+    func makeSubViewConstraint() {
+        self.makeMenuViewConstraint()
+        self.makeLogoViewConstraint()
+        self.makeButtonConstarint(targetButton: self.leftButton)
+        self.makeButtonConstarint(targetButton: self.rightButton)
+
+        self.leftButton.leadingAnchor.constraint(equalTo: self.menuView.leadingAnchor, constant: 32).isActive = true
+        self.rightButton.trailingAnchor.constraint(equalTo: self.menuView.trailingAnchor, constant: -32).isActive = true
+
+        self.makeBottomViewConstraint()
+    }
+}
+
+extension WriteView: ActionProtocol {
+    func linkAction() {
+        self.leftButton.addTarget(WriteViewController(), action: #selector(WriteViewController.cancelView), for: .touchUpInside)
     }
 }
