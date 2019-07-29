@@ -131,25 +131,25 @@ class CustomTabBarView: UIView {
             firtButton.button.setImage(UIImage(named: "Home"), for: .normal)
             firtButton.button.setImage(UIImage(named: "SelectedHome"), for: .selected)
             firtButton.button.setImage(UIImage(named: "SelectedHome"), for: [.selected, .highlighted])
-            firtButton.buttonTitle.text = "써글홈"
+            firtButton.buttonTitleLabel.text = "써글홈"
         }
         if let secondButton = leftStackView.rightItemView as? ButtonLabelStackView {
             secondButton.button.setImage(UIImage(named: "Bookmark"), for: .normal)
             secondButton.button.setImage(UIImage(named: "SelectedBookMark"), for: .selected)
             secondButton.button.setImage(UIImage(named: "SelectedBookMark"), for: [.selected, .highlighted])
-            secondButton.buttonTitle.text = "즐겨찾기"
+            secondButton.buttonTitleLabel.text = "즐겨찾기"
         }
         if let thirdButton = rightStackView.leftItemView as? ButtonLabelStackView {
             thirdButton.button.setImage(UIImage(named: "MyWrite"), for: .normal)
             thirdButton.button.setImage(UIImage(named: "SelectedMyWrite"), for: .selected)
             thirdButton.button.setImage(UIImage(named: "SelectedMyWrite"), for: [.selected, .highlighted])
-            thirdButton.buttonTitle.text = "마이글"
+            thirdButton.buttonTitleLabel.text = "마이글"
         }
         if let fourButton = rightStackView.rightItemView as? ButtonLabelStackView {
             fourButton.button.setImage(UIImage(named: "Setting"), for: .normal)
             fourButton.button.setImage(UIImage(named: "SelectedSetting"), for: .selected)
             fourButton.button.setImage(UIImage(named: "SelectedSetting"), for: [.selected, .highlighted])
-            fourButton.buttonTitle.text = "관리"
+            fourButton.buttonTitleLabel.text = "관리"
         }
     }
 

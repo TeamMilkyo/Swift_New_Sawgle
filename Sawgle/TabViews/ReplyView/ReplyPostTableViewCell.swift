@@ -105,7 +105,7 @@ class ReplyPostTableViewCell: UITableViewCell {
         self.replyPostTextLabel.text = replyData.postText
         self.replyPostNickNameLabel.text = replyData.nickName
         self.postDateLabel.text = replyData.postDate
-        self.heartView.setHeartCount(count: replyData.heartCount)
+        self.heartView.countHeartValue(count: replyData.heartCount)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

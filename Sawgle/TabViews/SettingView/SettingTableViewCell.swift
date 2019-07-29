@@ -48,9 +48,7 @@ class SettingTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         backgroundColor = ColorList.lightPeach
-
         self.makeSubView()
         self.makeSubViewConstraint()
         self.addAccessoryView()

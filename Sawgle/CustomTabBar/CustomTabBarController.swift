@@ -13,7 +13,7 @@ class CustomTabBarController: UIViewController {
     var boomarkViewController: BookMarkViewController?
     var mywriteViewController: MyWriteViewController?
     var settingViewController: SettingViewController?
-    var navigationViewController: UINavigationController?
+    var newNavigationController: UINavigationController?
     var viewControllerList = [UIViewController]()
     var previousIndex: Int?
 
@@ -41,9 +41,9 @@ class CustomTabBarController: UIViewController {
         }
 
         let previousViewArrayNumber = previousSelectedIndex - 1
-        self.navigationViewController?.willMove(toParent: nil)
-        self.navigationViewController?.view.removeFromSuperview()
-        self.navigationViewController?.removeFromParent()
+        self.newNavigationController?.willMove(toParent: nil)
+        self.newNavigationController?.view.removeFromSuperview()
+        self.newNavigationController?.removeFromParent()
 
         self.viewControllerList[previousViewArrayNumber].willMove(toParent: nil)
         self.viewControllerList[previousViewArrayNumber].view.removeFromSuperview()
@@ -65,7 +65,7 @@ class CustomTabBarController: UIViewController {
         newNavigationController.navigationBar.shadowImage = UIImage()
         newNavigationController.navigationBar.titleTextAttributes = [.font: UIFont.mainFont(displaySize: 24), .foregroundColor: titleColor]
 
-        self.navigationViewController = newNavigationController
+        self.newNavigationController = newNavigationController
         newNavigationController.view.frame = targetView.contentView.bounds
         addChild(newNavigationController)
         targetView.contentView.addSubview(newNavigationController.view)

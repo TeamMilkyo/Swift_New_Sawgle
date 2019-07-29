@@ -67,12 +67,12 @@ class ReplyViewController: UIViewController {
         return navigationItemTitleStackView
     }()
 
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        titleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
-        titleLabel.tintColor = ColorList.greyishBrown
-        titleLabel.text = "네비게이션 타이틀"
-        return titleLabel
+    let replyViewTitleLabel: UILabel = {
+        let replyViewTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        replyViewTitleLabel.font = UIFont(name: "S-CoreDream-2ExtraLight", size: 12.3)
+        replyViewTitleLabel.tintColor = ColorList.greyishBrown
+        replyViewTitleLabel.text = "ReplyView Title"
+        return replyViewTitleLabel
     }()
 
     let titleImageView: UIImageView = {
@@ -186,9 +186,9 @@ class ReplyViewController: UIViewController {
     }
 
     func setNavigationItemTitleStackView(titleName: String) {
-        self.titleLabel.text = "\(titleName)"
+        self.replyViewTitleLabel.text = "\(titleName)"
         self.navigationItemTitleStackView.addArrangedSubview(self.titleImageView)
-        self.navigationItemTitleStackView.addArrangedSubview(self.titleLabel)
+        self.navigationItemTitleStackView.addArrangedSubview(self.replyViewTitleLabel)
         navigationItem.titleView = self.navigationItemTitleStackView
     }
 
@@ -206,7 +206,7 @@ class ReplyViewController: UIViewController {
     func makeStarButtonImageViewContraint() {
         self.starButtonImageView.translatesAutoresizingMaskIntoConstraints = false
         self.starCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.replyViewTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleImageView.translatesAutoresizingMaskIntoConstraints = false
         self.starBarButtonItemStackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -218,7 +218,7 @@ class ReplyViewController: UIViewController {
 
     func makeTitleImageViewConstraint() {
         NSLayoutConstraint.activate([
-            titleImageView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor, multiplier: 0.63),
+            titleImageView.heightAnchor.constraint(equalTo: replyViewTitleLabel.heightAnchor, multiplier: 0.63),
 
         ])
     }

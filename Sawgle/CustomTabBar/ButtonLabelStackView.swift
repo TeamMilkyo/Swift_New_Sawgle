@@ -20,13 +20,13 @@ class ButtonLabelStackView: UIView {
         UIButton()
     }()
 
-    let buttonTitle: UILabel = {
-        let firstButtonLabel = UILabel()
-        firstButtonLabel.font = UIFont.mainFont(displaySize: 15)
-        firstButtonLabel.textColor = ColorList.brownish
-        firstButtonLabel.contentMode = .center
-        firstButtonLabel.textAlignment = .center
-        return firstButtonLabel
+    let buttonTitleLabel: UILabel = {
+        let buttonTitleLabel = UILabel()
+        buttonTitleLabel.font = UIFont.mainFont(displaySize: 15)
+        buttonTitleLabel.textColor = ColorList.brownish
+        buttonTitleLabel.contentMode = .center
+        buttonTitleLabel.textAlignment = .center
+        return buttonTitleLabel
     }()
 
     func makeButtonStackViewConstraint() {
@@ -70,6 +70,6 @@ extension ButtonLabelStackView: UIViewItemProtocol {
 extension ButtonLabelStackView: StackViewItemProtocol {
     func makeStackView() {
         self.buttonStackView.addArrangedSubview(self.button)
-        self.buttonStackView.addArrangedSubview(self.buttonTitle)
+        self.buttonStackView.addArrangedSubview(self.buttonTitleLabel)
     }
 }
