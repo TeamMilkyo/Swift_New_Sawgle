@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BF616B10D05A1E50BF8D39D /* Pods_Sawgle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B2C8B73D6655B3BD66C1A3 /* Pods_Sawgle.framework */; };
 		1E2CC67C22927C6F006E0B6E /* NewRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */; };
 		386CD00E22B64C7800D69166 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386CD00D22B64C7800D69166 /* ReplyViewController.swift */; };
 		386CD01122B7834700D69166 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386CD01022B7834700D69166 /* ReplyView.swift */; };
@@ -57,11 +58,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184635B95D8832D71587D6E5 /* Pods-Sawgle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sawgle.debug.xcconfig"; path = "Target Support Files/Pods-Sawgle/Pods-Sawgle.debug.xcconfig"; sourceTree = "<group>"; };
 		1E2CC67B22927C6F006E0B6E /* NewRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegisterViewController.swift; sourceTree = "<group>"; };
 		386CD00D22B64C7800D69166 /* ReplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		386CD01022B7834700D69166 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
 		386CD01222B7872F00D69166 /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
 		389F08F722BA26BC00EA5AD6 /* SawgleAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SawgleAPIData.swift; sourceTree = "<group>"; };
+		95B2C8B73D6655B3BD66C1A3 /* Pods_Sawgle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sawgle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B406BA5022B3266A009B921D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B406BA5822B354AD009B921D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		B4189F8E22929AF100B10E46 /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		B4FBBE3A22EBF1A9002B9E62 /* UIViewItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewItemProtocol.swift; sourceTree = "<group>"; };
 		B4FDCBBD22EB6CBC001F01D3 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		B4FDCBBF22EB7126001F01D3 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		D990E83D5BF1498B1D613F81 /* Pods-Sawgle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sawgle.release.xcconfig"; path = "Target Support Files/Pods-Sawgle/Pods-Sawgle.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +117,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF616B10D05A1E50BF8D39D /* Pods_Sawgle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B826867C0235865C9FD4A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95B2C8B73D6655B3BD66C1A3 /* Pods_Sawgle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		386CD00F22B7833800D69166 /* ReplyView */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +144,16 @@
 				B4F804A022ECC5DD0067D720 /* ReplyTextHeaderView.swift */,
 			);
 			path = ReplyView;
+			sourceTree = "<group>";
+		};
+		5C9FF2D951DF7F15F97FCE7D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				184635B95D8832D71587D6E5 /* Pods-Sawgle.debug.xcconfig */,
+				D990E83D5BF1498B1D613F81 /* Pods-Sawgle.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		B406BA4F22B32655009B921D /* SettingView */ = {
@@ -195,6 +218,8 @@
 			children = (
 				B4BDA9AE227A759E0064B561 /* Sawgle */,
 				B4BDA9AD227A759E0064B561 /* Products */,
+				5C9FF2D951DF7F15F97FCE7D /* Pods */,
+				10B826867C0235865C9FD4A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4BDA9BE227A759F0064B561 /* Build configuration list for PBXNativeTarget "Sawgle" */;
 			buildPhases = (
+				E1B29FABD388C78E9E74055E /* [CP] Check Pods Manifest.lock */,
 				B4BDA9A8227A759E0064B561 /* Sources */,
 				B4BDA9A9227A759E0064B561 /* Frameworks */,
 				B4BDA9AA227A759E0064B561 /* Resources */,
+				47741377C8C1B18410CE43E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +375,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47741377C8C1B18410CE43E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sawgle/Pods-Sawgle-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sawgle/Pods-Sawgle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1B29FABD388C78E9E74055E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sawgle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4BDA9A8227A759E0064B561 /* Sources */ = {
@@ -536,6 +614,7 @@
 		};
 		B4BDA9BF227A759F0064B561 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 184635B95D8832D71587D6E5 /* Pods-Sawgle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -555,6 +634,7 @@
 		};
 		B4BDA9C0227A759F0064B561 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D990E83D5BF1498B1D613F81 /* Pods-Sawgle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
